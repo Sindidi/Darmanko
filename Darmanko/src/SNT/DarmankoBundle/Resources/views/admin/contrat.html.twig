@@ -1,0 +1,82 @@
+{% extends "::admin.html.twig" %}
+
+{% block content %}
+
+<!-- Page-Title -->
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="pull-left page-title">Détails du contrat</h4>
+        <ol class="breadcrumb pull-right">
+            <li><a href="{{ path('admin') }}">Reservations</a></li>
+            <li><a href="{{ path('reservation', {"id": reservation.id}) }}">Détail</a></li>
+            <li class="active">Contrat</li>
+        </ol>
+    </div>
+</div>
+
+<div class="col-lg-6">
+    <div class="panel panel-color panel-primary" style="height: 360px;">
+        <div class="panel-heading"> 
+            <h3 class="panel-title">Informations du client</h3> 
+        </div> 
+        <div class="panel-body"> 
+            <p><i><B>Nom du client: </B></i>{{ reservation.client.nomComplet }}</p>
+            <p><i><B>Numero de pièce: </B></i>{{ reservation.client.numpiece }}</p> 
+            <p><i><B>Adresse: </B></i>{{ reservation.client.adress}}</p>
+            <p><i><B>Téléphone: </B></i>{{ reservation.client.tel}}</p>
+            <p><i><B>Email: </B></i>{{ reservation.client.email}}</p>
+        </div> 
+    </div>
+</div>
+<div class="col-lg-6">
+    <div class="panel panel-color panel-primary" style="height: 360px;">
+        <div class="panel-heading"> 
+            <h3 class="panel-title">Informations du Bien</h3> 
+        </div> 
+        <div class="panel-body"> 
+            <p><i><B>Nom du bien: </B></i>{{ reservation.bien.nomBien }}</p>
+            <p><i><B>Type du bien </B></i>{{ reservation.bien.type.libelle }}</p> 
+            <p><i><B>Localité: </B></i>{{ reservation.bien.localite.libelle }}</p>
+            <p><i><B>Description: </B></i>{{ reservation.bien.description}}</p>
+            <p><i><B>Prix Location: </B></i>{{ reservation.bien.prixLocation}}FCFA</p>
+        </div> 
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <div class="panel panel-muted panel-border">
+            <div class="panel-heading"> 
+                <h3 class="panel-title text-primary">Termes du contrat</h3> 
+            </div> 
+            <div class="panel-body"> 
+            <p><i><B>Caution: </B></i>{{ reservation.bien.prixLocation}}FCFA</p>
+            <p><i><B>Montant payé: </B></i>50000FCA</p>
+            <p><i><B>Total: </B></i>{{ reservation.bien.prixLocation + 50000}}FCFA</p>
+            <p class="text-primary">A PRENDRE EN COMPTE</p>
+            <p>
+                Il est mentionné que si vous reservez un bien et qu'on le valide,une fois le contrat signé et que vous occupez les lieux vous devrez payer chaque fin du mois au plutard le 5
+            </p>
+            <p>
+                <div class="col-sm-offset-4 col-sm-9">
+                    <div class="checkbox checkbox-primary">
+                        <input id="accepte" type="checkbox">
+                        <label>
+                            J'ai lu et j'accepte
+                        </label>
+                    </div>
+                </div>
+            </p>
+            <center><br>
+                <button type="button" class="btn btn-icon waves-effect waves-light btn-success m-b-5" disabled="disabled">
+                    Enregistrer <i class="fa fa-thumbs-o-up"></i> 
+                </button>
+            </center>
+            </div> 
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

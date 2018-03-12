@@ -1,0 +1,110 @@
+{% extends "::admin.html.twig" %}
+
+{% block content %}
+
+{% block css %}
+<!-- Dropzone css -->
+<link href="{{ asset('assets/plugins/dropzone/dist/dropzone.css')}}" rel="stylesheet" type="text/css">
+
+<!-- DataTables -->
+<link href="{{asset('assets/plugins/magnific-popup/dist/magnific-popup.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/plugins/jquery-datatables-editable/datatables.css')}}" rel="stylesheet" type="text/css" />
+
+<style>
+    img{
+        width: 50px;
+    }
+</style>
+
+{% endblock %}
+
+<div class="content">
+    <div class="container">             
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="pull-left page-title">Nos localités</h4>
+            </div>
+        </div>
+        
+        <div class="panel">
+                            
+            <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="m-b-30">
+                        <button id="add" class="btn btn-primary waves-effect waves-light">Ajouter <i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="form" id="formAdd" style="display: none;">
+                    <form method="POST" class="form-inline localite" role="form">
+                        <div class="form-group">
+                            <input name="type" type="text" class="form-control" id="exampleInputEmail2" placeholder="Entrer le type de bien">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-custom waves-effect waves-light">Ajouter</button>
+                    </form>
+                </div><br>
+            </div>
+            <table class="table table-bordered table-striped" id="datatable-fixed-header">
+                <thead>
+                    <tr>
+                        <th>id de la localité</th>
+                        <th>Nom de la localité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for type in types %}
+                    <tr class="gradeA">
+                        <td>{{ type.id }}</td>
+                        <td>{{ type.libelle }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+            <!-- end: page -->
+
+    </div> <!-- end Panel -->
+
+    </div> <!-- container -->
+                               
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+    <!-- Datatables-->
+        <script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/dataTables.bootstrap.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/dataTables.buttons.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/buttons.bootstrap.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/jszip.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/pdfmake.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/vfs_fonts.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/buttons.html5.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/buttons.print.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/dataTables.fixedHeader.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/dataTables.keyTable.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/dataTables.responsive.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/responsive.bootstrap.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/dataTables.scroller.min.js')}}"></script>
+
+        <!-- Datatable init js -->
+        <script src="{{asset('assets/pages/datatables.init.js')}}"></script>
+
+        <script type="text/javascript">
+            
+        </script>
+
+        <script src="{{ asset('js/test.js') }}"></script>
+
+        <script>
+            $("#add").on("click", function(){
+                $(this).hide();
+                $("#formAdd").show();
+            })
+        </script>
+
+{% endblock %}

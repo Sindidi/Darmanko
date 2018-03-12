@@ -1,0 +1,315 @@
+{% extends "::admin.html.twig" %}
+
+{% block content %}
+
+{% block css %}
+<!-- Dropzone css -->
+<link href="{{ asset('assets/plugins/dropzone/dist/dropzone.css')}}" rel="stylesheet" type="text/css">
+
+<!-- DataTables -->
+<link href="{{asset('assets/plugins/magnific-popup/dist/magnific-popup.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('assets/plugins/jquery-datatables-editable/datatables.css')}}" rel="stylesheet" type="text/css" />
+
+<!-- Multiselect -->
+<link rel="Stylesheet" type="text/css" href="{{asset('template/css/select2.css')}}" />
+<link rel="Stylesheet" type="text/css" href="{{asset('template/css/select2-bootstrap.css')}}" />
+<style>
+    img{
+        width: 50px;
+    }
+</style>
+
+{% endblock %}
+
+<div class="content">
+    <div class="container">
+
+        <!-- Page-Title -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h4 class="pull-left page-title">Les biens</h4>
+                <ol class="breadcrumb pull-right">
+                    <li><a href="#">Liste des bien</a></li>
+                    <li class="active">Ajouter un bien</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="panel" id="ajout" style="display: none;">
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="m-b-30">
+                                        <button type="button" id="lister" class="btn btn-primary waves-effect waves-light">Lister <i class="fa fa-remove"></i></button>
+                                    </div>
+                                </div>
+                                <div class="form ajout" id="formLocalite">
+                                    <form method="POST" class="form-inline formAdd" role="form">
+                                        <div class="form-group">
+                                            <label class="control-label"><i>Localité: </i></label>
+                                            <input name="libelle" type="text" class="form-control libelle" placeholder="Entrer la localité">
+                                            <input name="Classe" value="Localite" type="hidden" class="form-control" id="libelle" placeholder="Entrer le type de bien">
+                                        </div>
+                                        <button name="submit" value="Localite" type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
+                                    </form>
+                                </div>
+                                <div class="form ajout" id="formType">
+                                    <form method="POST" class="form-inline formAdd" role="form">
+                                        <div class="form-group">
+                                            <label class="control-label"><i>Type de bien: </i></label>
+                                            <input name="libelle" type="text" class="form-control libelle"  placeholder="Entrer le type de bien">
+                                            <input name="Classe" value="TypeBien" type="hidden" class="form-control" id="libelle" placeholder="Entrer le type de bien">
+                                        </div>
+                                        <button name="submit" type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="form">
+                                <form class="cmxform form-horizontal tasi-form" id="commentForm" method="POST" action="#" novalidate="novalidate">
+                                    <div class="form-group">
+                                        <label for="cname" class="control-label col-lg-2">Nom du bien</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" id="cname" name="name" type="text" required="" aria-required="true">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cemail" class="control-label col-lg-2">Type de bien</label>
+                                        <div class="col-lg-9">
+                                            <select name="localite" id="seltype" class="select2 form-control" data-placeholder="Choisir une localité">
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <button id="addType" type="button" class="btn btn-custom btn-primary waves-effect waves-light"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cemail" class="control-label col-lg-2">Localité</label>
+                                        <div class="col-lg-9">
+                                            <select name="localite" id="sellocalite" class="select2 form-control" data-placeholder="Choisir une localité">
+                                                
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <button id="addLocalite" type="button" class="btn btn-custom btn-primary waves-effect waves-light"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="cname" class="control-label col-lg-2">Prix location</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" id="cname" name="name" type="number" required="" aria-required="true">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ccomment" class="control-label col-lg-2">Description</label>
+                                        <div class="col-lg-9">
+                                            <textarea class="form-control" id="ccomment" name="comment" required="" aria-required="true"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ccomment" class="control-label col-lg-2">Images du bien</label>
+                                        <div class="col-lg-9">
+                                            <div class="col-md-12 portlets">
+                                                <!-- Your awesome content goes here -->
+                                                <div class="m-b-30">
+                                                    <div action="#" class="dropzone" id="dropzone">
+                                                    <div class="fallback">
+                                                        <input name="file" type="file" multiple="multiple">
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-6 col-lg-6">
+                                            <button class="btn btn-success waves-effect waves-light" type="submit">Ajouter</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> <!-- .form -->
+                        </div> <!-- panel-body -->
+                    </div> <!-- panel -->
+                </div> <!-- col -->
+
+            </div> <!-- End row -->
+        </div>              
+
+        
+        
+        <div class="panel" id="list">
+                            
+            <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="m-b-30">
+                        <button type="button" id="add" class="btn btn-primary waves-effect waves-light">Ajouter <i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-striped" id="datatable-fixed-header">
+                <thead>
+                    <tr>
+                        <th>Nom du bien</th>
+                        <th>Type du bien</th>
+                        <th>Localité</th>
+                        <th>Prix location</th>
+                        <th>Photo</th>
+                        <th>Etat</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for bien in biens %}
+                    <tr class="gradeA">
+                        <td>{{ bien.nomBien }}</td>
+                        <td>{{ bien.type.libelle }}</td>
+                        <td>{{ bien.localite.libelle }}</td>
+                        <td>{{ bien.prixlocation }}</td>
+                        <td><img src="{{asset('image/')}}{{ bien.images[0].image }}"></td>
+                        {% if bien.etat == 1 %}
+                        <td>Disponible</td>
+                        {% else %}
+                        <td>Dèja occupé</td>
+                        {% endif %}
+                        <td class="actions">
+                            <a href="#" class="hidden on-editing save-row"><i class="fa fa-save"></i></a>
+                            <a href="#" class="hidden on-editing cancel-row"><i class="fa fa-times"></i></a>
+                            <a href="#" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
+                            <a href="#" class="on-default remove-row"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+            <!-- end: page -->
+
+    </div> <!-- end Panel -->
+
+    </div> <!-- container -->
+                               
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+    <!-- Datatables-->
+        <script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('assets/plugins/datatables/dataTables.bootstrap.js')}}"></script>
+
+        <!-- Datatable init js -->
+        <script src="{{asset('assets/pages/datatables.init.js')}}"></script>  
+
+        <script type="text/javascript">
+            
+        </script>
+        <!--multiselect-->
+        <script src="{{asset('template/js/select2.min.js')}}"></script>
+        <script src="{{asset('template/js/jquery.multi-select.js')}}"></script>
+        <script src="{{asset('template/js/jquery.quicksearch.js')}}"></script>
+
+        {# <!--form validation-->
+        <script type="text/javascript" src="{{asset('assets/plugins/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+
+        <!--form validation init-->
+        <script src="{{asset('assets/pages/form-validation-init.js')}}"></script> #}
+
+        <!-- Page Specific JS Libraries -->
+        <script src="{{ asset('assets/plugins/dropzone/dist/dropzone.js')}}"></script>
+
+        <script src="{{ asset('js/test.js') }}"></script>
+
+        <script>
+        $(function(){
+
+        })
+
+        function loadLocalite(){
+            $.ajax({
+
+                url: "{{path("ajaxLocalite")}}",
+                type: "POST",
+                dataType: "json",
+
+                success: function(data) {
+                    $("#sellocalite").html('<option value="">Choisir localité</option>');
+                    $.each(data, function(key, value){
+                        var op = $("<option value='"+value.id+"'></option>").text(value.nom);
+                        $("#sellocalite").append(op);
+                    })
+                },
+
+                error: function(res, stat, error) {
+                    console.log(error);
+                }
+            })
+        }
+
+        function loadType(){
+            $.ajax({
+
+                url: "{{path("ajaxType")}}",
+                type: "POST",
+                dataType: "json",
+
+                success: function(data) {
+                    $("#seltype").html('<option value="">Choisir le type</option>');
+                    $.each(data, function(key, value){
+                        var op = $("<option value='"+value.id+"'></option>").text(value.nom);
+                        $("#seltype").append(op);
+                    })
+                },
+
+                error: function(res, stat, error) {
+                    console.log(error);
+                }
+            })
+        }
+        loadLocalite();
+        loadType();
+
+        $(".ajout").hide();
+
+        $("#addLocalite").on("click", function(){
+            $(".ajout").hide();
+            $("#formLocalite").show();
+        })
+        $("#addType").on("click", function(){
+            $(".ajout").hide();
+            $("#formType").show();
+        })
+
+        $(".formAdd").on("submit", function(e){
+            e.preventDefault();
+
+            $.ajax({
+
+                url: "{{path("ajaxAddSelect")}}",
+                type: "POST",
+                data: $(this).serialize(),
+                dataType: "text",
+
+                success: function(data) {
+                    $(".libelle").val('')
+                    $(".ajout").hide();
+                    console.log(data)
+                    loadLocalite();
+                    loadType();
+                },
+
+                error: function(res, stat, error) {
+                    console.log(error);
+                }
+            })
+            
+        })
+        </script>
+{% endblock %}

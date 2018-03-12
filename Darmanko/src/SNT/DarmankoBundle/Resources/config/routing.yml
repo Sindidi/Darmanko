@@ -1,0 +1,60 @@
+snt_darmanko_homepage:
+    path:     /
+    defaults: { _controller: SNTDarmankoBundle:Default:index }
+
+list:
+    path:     /accueil
+    defaults: { _controller: SNTDarmankoBundle:reservation:list }
+
+detail:
+    path:     /detail/{id}
+    defaults: { _controller: SNTDarmankoBundle:reservation:detail }
+    requirements:
+        id: \d+
+
+catalogue:
+    path:     /darmanko
+    defaults: { _controller: SNTDarmankoBundle:reservation:catalogue }
+
+admin:
+    path:     /admin
+    defaults: { _controller: SNTDarmankoBundle:admin:accueil }
+
+bien:
+    path:     /admin/bien
+    defaults: { _controller: SNTDarmankoBundle:admin:bien }
+
+enCours:
+    path:     /admin/reservationEnCours
+    defaults: { _controller: SNTDarmankoBundle:admin:enCours }
+    
+reservation:
+    path:     /admin/reservation/{id}
+    defaults: { _controller: SNTDarmankoBundle:admin:reservation }
+
+contrat:
+    path:     /admin/contrat/{id}
+    defaults: { _controller: SNTDarmankoBundle:admin:contrat }
+
+localite:
+    path:     /admin/localite
+    defaults: { _controller: SNTDarmankoBundle:admin:localite }
+
+type:
+    path:     /admin/type
+    defaults: { _controller: SNTDarmankoBundle:admin:type }
+
+ajaxLocalite:
+    path:     /admin/ajaxLocalite
+    defaults: { _controller: SNTDarmankoBundle:admin:ajaxLocalite }
+
+ajaxType:
+    path:     /admin/ajaxtype
+    defaults: { _controller: SNTDarmankoBundle:admin:ajaxtype }
+
+ajaxAddSelect:
+    path:     /admin/ajaxAddSelect
+    defaults: { _controller: SNTDarmankoBundle:admin:ajaxAddSelect }
+
+
+

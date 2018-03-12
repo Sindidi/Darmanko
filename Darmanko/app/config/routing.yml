@@ -1,0 +1,7 @@
+snt_darmanko:
+    resource: "@SNTDarmankoBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

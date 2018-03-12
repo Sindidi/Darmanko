@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="keywords" content="HTML5 Template" />
+	<meta name="description" content="Multipress - Responsive Multipurpose HTML5 Template">
+	<meta name="author" content="">
+
+	<title>SG-immobilier</title>
+
+	<!-- Mobile Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+
+	<!-- Web Fonts  -->
+	<link href="{{asset('template/css/googleRobot.css')}}" rel='stylesheet' type='text/css'>
+	<link href="{{asset('template/css/googleOpen.css')}}" rel='stylesheet' type='text/css'>
+	<link href="{{asset('template/css/googleArimo.css')}}" rel='stylesheet' type='text/css'>
+
+	<!-- Bootstrap core CSS -->
+	<link href="{{asset('template/css/bootstrap.css')}}" rel="stylesheet">
+
+	<link rel="shortcut icon" href="{{asset('image/logo.png')}}">
+
+	<!-- FontAwesome icons CSS -->
+	<link href="{{asset('template/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+
+	<!-- Theme Styles CSS-->
+	<link href="{{asset('template/css/styles.css')}}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{{asset('template/css/accordion.css')}}">
+	<link href="{{asset('template/js/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
+	<link href="{{asset('template/js/owl-carousel/owl.theme.css')}}" rel="stylesheet">
+	<link href="{{asset('template/js/rs-plugin/css/settings.css')}}" rel="stylesheet" />
+	<link href="{{asset('template/js/flexslider/flexslider.css')}}" rel="stylesheet">
+	<link rel="Stylesheet" type="text/css" href="{{asset('template/css/jquery_ui.css')}}" /> 
+	<link rel="Stylesheet" type="text/css" href="{{asset('template/css/superTabs.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset('template/css/isotope.css')}}">
+
+	{% block css %}{% endblock %}
+</head>
+<body>
+<div class="body">
+
+<!-- Header -->
+<header>
+   <div class="container">
+      <div class="col-md-12">
+         <!-- Logo -->
+         <div class="col-md-2">
+            <h1 class="logo"><a href="{{path('list')}}"><img src="{{asset('image/logo.png')}}" style="width: 100px;"></a></h1>
+         </div>
+         
+        <!-- Navmenu -->
+         <div class="col-md-10">
+            <div id='topnav'>
+               <ul class="top-menu">
+                  <li class='has-sub'>
+                     <a href='{{path('list')}}'><span>Accueil</span></a>
+                  </li>
+                  
+                  <li class='has-sub'> <a href='{{path('catalogue')}}'><span>Biens</span></a>
+                  </li>
+                  <li class='has-sub'>
+                     <a href='#'><span>Blog</span></a>
+                     
+                  </li>
+                  <li class='has-sub-full'>
+                     <a href='#'><span>A propos</span></a>
+                              
+                  </li>
+                  <li class="has-sub" class="dropdown-content">
+                     <a href='#'><span>Mon compte</span></a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+        
+      </div>
+   </div>
+</header>
+<!-- Header -->
+
+{% block content %}{% endblock %}
+
+<!-- Footer - Copyright -->
+	<div class="footer-bottom">
+		<a class="back-top" href="#"><i class="fa fa-chevron-up"></i></a>
+		<div class="container">
+			<div class="row-fluid">
+				
+				<div class="col-md-6">
+					<ul class="top-contact">
+						<li><i class="fa fa-phone"></i>78 1025004</li>
+						<li><i class="fa fa-envelope"></i> gning.saliou96@gmail.com</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer - Copyright -->
+</div>
+
+
+
+<!-- JavaScript -->
+<script src="{{asset('template/js/jquery-1.8.3.min.js')}}"></script>
+<script src="{{asset('template/js/rs-plugin/js/jquery.themepunch.plugins.min.js')}}"></script>
+<script src="{{asset('template/js/rs-plugin/js/jquery.themepunch.revolution.min.js')}}"></script>
+<script src="{{asset('template/js/rs-plugin/rs.home.js')}}"></script>
+<script src="{{asset('template/js/superTabs.js')}}"></script>
+<script type="text/javascript" src="{{asset('template/js/jsapi.js')}}"></script>
+<script type="text/javascript">google.load("jqueryui", "1.7.2");</script> 
+<script src="{{asset('template/js/bootstrap.js')}}"></script>
+<script src="{{asset('template/js/flexslider/jquery.flexslider.js')}}"></script>
+<script src="{{asset('template/js/owl-carousel/owl.carousel.js')}}"></script>
+<script src="{{asset('template/js/jquery.akordeon.js')}}"></script>
+<script src="{{asset('template/js/jflickrfeed.min.js')}}"></script>
+<script src="{{asset('template/js/tab.js')}}"></script>
+<script src="{{asset('template/js/jquery.isotope.min.js')}}"></script>
+<script src="{{asset('template/js/jquery.mobilemenu.js')}}"></script>
+<script src="{{asset('template/js/magnific-popup/jquery.magnific-popup.js')}}"></script>
+<script src="{{asset('template/js/main.js')}}"></script>
+<script src="{{asset('template/js/jquery-ui.js')}}"></script>
+<script src="{{asset('template/js/select2.min.js')}}"></script>
+
+
+{% block javascript %}{% endblock %}
+
+</body>
+</html>
+
