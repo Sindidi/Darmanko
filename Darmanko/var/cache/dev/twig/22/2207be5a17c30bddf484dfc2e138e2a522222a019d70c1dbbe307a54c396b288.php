@@ -23,29 +23,29 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_0df43853a20e46c8facd2551ebd9c06aacedb5631975fa1b5fd262b237acc3b5 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0df43853a20e46c8facd2551ebd9c06aacedb5631975fa1b5fd262b237acc3b5->enter($__internal_0df43853a20e46c8facd2551ebd9c06aacedb5631975fa1b5fd262b237acc3b5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SNTDarmankoBundle:admin:bien.html.twig"));
+        $__internal_544fe632d0b8741be9af2d125d778c68a91951f0204d5d2db71542c47ab58498 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_544fe632d0b8741be9af2d125d778c68a91951f0204d5d2db71542c47ab58498->enter($__internal_544fe632d0b8741be9af2d125d778c68a91951f0204d5d2db71542c47ab58498_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SNTDarmankoBundle:admin:bien.html.twig"));
 
-        $__internal_8617d022078231209d1456fad5e2add699d5b8a6dedbc7e4cf9ac9b7b8dd21fd = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8617d022078231209d1456fad5e2add699d5b8a6dedbc7e4cf9ac9b7b8dd21fd->enter($__internal_8617d022078231209d1456fad5e2add699d5b8a6dedbc7e4cf9ac9b7b8dd21fd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SNTDarmankoBundle:admin:bien.html.twig"));
+        $__internal_5765bce58ae1bb17b13e9abe59e1e04d54aa6f11dc96a331ff3e6cc4ddfe92f3 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5765bce58ae1bb17b13e9abe59e1e04d54aa6f11dc96a331ff3e6cc4ddfe92f3->enter($__internal_5765bce58ae1bb17b13e9abe59e1e04d54aa6f11dc96a331ff3e6cc4ddfe92f3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SNTDarmankoBundle:admin:bien.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_0df43853a20e46c8facd2551ebd9c06aacedb5631975fa1b5fd262b237acc3b5->leave($__internal_0df43853a20e46c8facd2551ebd9c06aacedb5631975fa1b5fd262b237acc3b5_prof);
+        $__internal_544fe632d0b8741be9af2d125d778c68a91951f0204d5d2db71542c47ab58498->leave($__internal_544fe632d0b8741be9af2d125d778c68a91951f0204d5d2db71542c47ab58498_prof);
 
         
-        $__internal_8617d022078231209d1456fad5e2add699d5b8a6dedbc7e4cf9ac9b7b8dd21fd->leave($__internal_8617d022078231209d1456fad5e2add699d5b8a6dedbc7e4cf9ac9b7b8dd21fd_prof);
+        $__internal_5765bce58ae1bb17b13e9abe59e1e04d54aa6f11dc96a331ff3e6cc4ddfe92f3->leave($__internal_5765bce58ae1bb17b13e9abe59e1e04d54aa6f11dc96a331ff3e6cc4ddfe92f3_prof);
 
     }
 
     // line 3
     public function block_content($context, array $blocks = array())
     {
-        $__internal_f3a591ec91e9981f885d5189078bcf6a9f485ec0c8eecaa982bc14b3eac4addb = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_f3a591ec91e9981f885d5189078bcf6a9f485ec0c8eecaa982bc14b3eac4addb->enter($__internal_f3a591ec91e9981f885d5189078bcf6a9f485ec0c8eecaa982bc14b3eac4addb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_ea62f31bf5e96ada984a9a35c17eeccd4901dc7347ef1ff07d27c0da4889e1df = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_ea62f31bf5e96ada984a9a35c17eeccd4901dc7347ef1ff07d27c0da4889e1df->enter($__internal_ea62f31bf5e96ada984a9a35c17eeccd4901dc7347ef1ff07d27c0da4889e1df_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
-        $__internal_696e3d571bb87f679a42184650a552380c48676b0614bbb558c555622c551354 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_696e3d571bb87f679a42184650a552380c48676b0614bbb558c555622c551354->enter($__internal_696e3d571bb87f679a42184650a552380c48676b0614bbb558c555622c551354_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_f06a4d1fe25c076ffaf2f44ecbddf7a90b4859086f9ae61ceaf4765371fa6b02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f06a4d1fe25c076ffaf2f44ecbddf7a90b4859086f9ae61ceaf4765371fa6b02->enter($__internal_f06a4d1fe25c076ffaf2f44ecbddf7a90b4859086f9ae61ceaf4765371fa6b02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         // line 4
         echo "
@@ -91,7 +91,7 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                                     </form>
                                 </div>
                                 <div class=\"form ajout\" id=\"formType\">
-                                    <form method=\"POST\" class=\"form-inline formAdd\" role=\"form\">
+                                    <form method=\"POST\" class=\"form-inline formAdd\" enctype=\"multipart/form-data\" role=\"form\">
                                         <div class=\"form-group\">
                                             <label class=\"control-label\"><i>Type de bien: </i></label>
                                             <input name=\"libelle\" type=\"text\" class=\"form-control libelle\"  placeholder=\"Entrer le type de bien\">
@@ -102,17 +102,17 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                                 </div>
                             </div>
                             <div class=\"form\">
-                                <form class=\"cmxform form-horizontal tasi-form\" id=\"commentForm\" method=\"POST\" action=\"#\" novalidate=\"novalidate\">
+                                <form class=\"cmxform form-horizontal tasi-form\" id=\"commentForm\" method=\"POST\" action=\"\" novalidate=\"novalidate\">
                                     <div class=\"form-group\">
                                         <label for=\"cname\" class=\"control-label col-lg-2\">Nom du bien</label>
                                         <div class=\"col-lg-9\">
-                                            <input class=\"form-control\" id=\"cname\" name=\"name\" type=\"text\" required=\"\" aria-required=\"true\">
+                                            <input class=\"form-control\" id=\"cname\" name=\"nom\" type=\"text\" required=\"\" aria-required=\"true\">
                                         </div>
                                     </div>
                                     <div class=\"form-group\">
                                         <label for=\"cemail\" class=\"control-label col-lg-2\">Type de bien</label>
                                         <div class=\"col-lg-9\">
-                                            <select name=\"localite\" id=\"seltype\" class=\"select2 form-control\" data-placeholder=\"Choisir une localité\">
+                                            <select name=\"type\" id=\"seltype\" class=\"select2 form-control\" data-placeholder=\"Choisir une localité\">
                                                 
                                             </select>
                                         </div>
@@ -135,13 +135,13 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                                     <div class=\"form-group\">
                                         <label for=\"cname\" class=\"control-label col-lg-2\">Prix location</label>
                                         <div class=\"col-lg-9\">
-                                            <input class=\"form-control\" id=\"cname\" name=\"name\" type=\"number\" required=\"\" aria-required=\"true\">
+                                            <input class=\"form-control\" id=\"cname\" name=\"prix\" type=\"number\" required=\"\" aria-required=\"true\">
                                         </div>
                                     </div>
                                     <div class=\"form-group\">
                                         <label for=\"ccomment\" class=\"control-label col-lg-2\">Description</label>
                                         <div class=\"col-lg-9\">
-                                            <textarea class=\"form-control\" id=\"ccomment\" name=\"comment\" required=\"\" aria-required=\"true\"></textarea>
+                                            <textarea class=\"form-control\" id=\"ccomment\" name=\"description\" required=\"\" aria-required=\"true\"></textarea>
                                         </div>
                                     </div>
                                     <div class=\"form-group\">
@@ -152,7 +152,7 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                                                 <div class=\"m-b-30\">
                                                     <div action=\"#\" class=\"dropzone\" id=\"dropzone\">
                                                     <div class=\"fallback\">
-                                                        <input name=\"file\" type=\"file\" multiple=\"multiple\">
+                                                        <input type=\"file\" multiple=\"multiple\" name=\"image\">
                                                     </div>
                                                     </div>
                                                 </div>
@@ -222,9 +222,8 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
             // line 174
             echo twig_escape_filter($this->env, $this->getAttribute($context["bien"], "prixlocation", array()), "html", null, true);
             echo "</td>
-                        <td><img src=\"";
+                        <td><img src=\"data:image/png;base64,";
             // line 175
-            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("image/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute($context["bien"], "images", array()), 0, array(), "array"), "image", array()), "html", null, true);
             echo "\"></td>
                         ";
@@ -242,8 +241,8 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
             echo "                        <td class=\"actions\">
                             <a href=\"#\" class=\"hidden on-editing save-row\"><i class=\"fa fa-save\"></i></a>
                             <a href=\"#\" class=\"hidden on-editing cancel-row\"><i class=\"fa fa-times\"></i></a>
-                            <a href=\"#\" class=\"on-default edit-row\"><i class=\"fa fa-pencil\"></i></a>
-                            <a href=\"#\" class=\"on-default remove-row\"><i class=\"fa fa-trash-o\"></i></a>
+                            <a href=\"#\" class=\"on-default edit-row\"><i class=\"fa fa-pencil\"></i></a>  |  
+                            <a href=\"#\" class=\"on-default text-danger remove-row\"><i class=\"fa fa-trash-o\"></i></a>
                         </td>
                     </tr>
                 ";
@@ -265,21 +264,21 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
 
 ";
         
-        $__internal_696e3d571bb87f679a42184650a552380c48676b0614bbb558c555622c551354->leave($__internal_696e3d571bb87f679a42184650a552380c48676b0614bbb558c555622c551354_prof);
+        $__internal_f06a4d1fe25c076ffaf2f44ecbddf7a90b4859086f9ae61ceaf4765371fa6b02->leave($__internal_f06a4d1fe25c076ffaf2f44ecbddf7a90b4859086f9ae61ceaf4765371fa6b02_prof);
 
         
-        $__internal_f3a591ec91e9981f885d5189078bcf6a9f485ec0c8eecaa982bc14b3eac4addb->leave($__internal_f3a591ec91e9981f885d5189078bcf6a9f485ec0c8eecaa982bc14b3eac4addb_prof);
+        $__internal_ea62f31bf5e96ada984a9a35c17eeccd4901dc7347ef1ff07d27c0da4889e1df->leave($__internal_ea62f31bf5e96ada984a9a35c17eeccd4901dc7347ef1ff07d27c0da4889e1df_prof);
 
     }
 
     // line 5
     public function block_css($context, array $blocks = array())
     {
-        $__internal_eaa5b126beb7e54510b1d1b9df407f06ab7401b8987fd78e9b77123f96150574 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_eaa5b126beb7e54510b1d1b9df407f06ab7401b8987fd78e9b77123f96150574->enter($__internal_eaa5b126beb7e54510b1d1b9df407f06ab7401b8987fd78e9b77123f96150574_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "css"));
+        $__internal_5da5e542d2a5e5b059385c242dbc78751798996738f06ab76d90185f4bd55460 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_5da5e542d2a5e5b059385c242dbc78751798996738f06ab76d90185f4bd55460->enter($__internal_5da5e542d2a5e5b059385c242dbc78751798996738f06ab76d90185f4bd55460_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "css"));
 
-        $__internal_07b22d609b2bf21ffef0625bb48f7bf209c671544d2b1544429df256b194599c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_07b22d609b2bf21ffef0625bb48f7bf209c671544d2b1544429df256b194599c->enter($__internal_07b22d609b2bf21ffef0625bb48f7bf209c671544d2b1544429df256b194599c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "css"));
+        $__internal_ffefa1b7fac7ac9e87386f06185168502792c8fb442f9a21142f9d3c5caeea83 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_ffefa1b7fac7ac9e87386f06185168502792c8fb442f9a21142f9d3c5caeea83->enter($__internal_ffefa1b7fac7ac9e87386f06185168502792c8fb442f9a21142f9d3c5caeea83_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "css"));
 
         // line 6
         echo "<!-- Dropzone css -->
@@ -315,21 +314,21 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
 
 ";
         
-        $__internal_07b22d609b2bf21ffef0625bb48f7bf209c671544d2b1544429df256b194599c->leave($__internal_07b22d609b2bf21ffef0625bb48f7bf209c671544d2b1544429df256b194599c_prof);
+        $__internal_ffefa1b7fac7ac9e87386f06185168502792c8fb442f9a21142f9d3c5caeea83->leave($__internal_ffefa1b7fac7ac9e87386f06185168502792c8fb442f9a21142f9d3c5caeea83_prof);
 
         
-        $__internal_eaa5b126beb7e54510b1d1b9df407f06ab7401b8987fd78e9b77123f96150574->leave($__internal_eaa5b126beb7e54510b1d1b9df407f06ab7401b8987fd78e9b77123f96150574_prof);
+        $__internal_5da5e542d2a5e5b059385c242dbc78751798996738f06ab76d90185f4bd55460->leave($__internal_5da5e542d2a5e5b059385c242dbc78751798996738f06ab76d90185f4bd55460_prof);
 
     }
 
     // line 202
     public function block_javascript($context, array $blocks = array())
     {
-        $__internal_8a1e969d57c094c1f5760d596e11627c04d7d4ab65bb54466d314a4cbbefaf05 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_8a1e969d57c094c1f5760d596e11627c04d7d4ab65bb54466d314a4cbbefaf05->enter($__internal_8a1e969d57c094c1f5760d596e11627c04d7d4ab65bb54466d314a4cbbefaf05_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascript"));
+        $__internal_7ba4f44b3ba0562f8f711d0679ad8b007e67cbae74215cc744fb292461681dcb = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_7ba4f44b3ba0562f8f711d0679ad8b007e67cbae74215cc744fb292461681dcb->enter($__internal_7ba4f44b3ba0562f8f711d0679ad8b007e67cbae74215cc744fb292461681dcb_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascript"));
 
-        $__internal_534200132d9766fed4975add994ceb090e7a13a2b4dc1d419bed74d8dfc34dfd = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_534200132d9766fed4975add994ceb090e7a13a2b4dc1d419bed74d8dfc34dfd->enter($__internal_534200132d9766fed4975add994ceb090e7a13a2b4dc1d419bed74d8dfc34dfd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascript"));
+        $__internal_3d23fccf8f68c56fffcb0ee32fade75e0f64ccfc1e0954bdf4ef0877f3ecb9c7 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3d23fccf8f68c56fffcb0ee32fade75e0f64ccfc1e0954bdf4ef0877f3ecb9c7->enter($__internal_3d23fccf8f68c56fffcb0ee32fade75e0f64ccfc1e0954bdf4ef0877f3ecb9c7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascript"));
 
         // line 203
         echo "
@@ -476,10 +475,10 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
         </script>
 ";
         
-        $__internal_534200132d9766fed4975add994ceb090e7a13a2b4dc1d419bed74d8dfc34dfd->leave($__internal_534200132d9766fed4975add994ceb090e7a13a2b4dc1d419bed74d8dfc34dfd_prof);
+        $__internal_3d23fccf8f68c56fffcb0ee32fade75e0f64ccfc1e0954bdf4ef0877f3ecb9c7->leave($__internal_3d23fccf8f68c56fffcb0ee32fade75e0f64ccfc1e0954bdf4ef0877f3ecb9c7_prof);
 
         
-        $__internal_8a1e969d57c094c1f5760d596e11627c04d7d4ab65bb54466d314a4cbbefaf05->leave($__internal_8a1e969d57c094c1f5760d596e11627c04d7d4ab65bb54466d314a4cbbefaf05_prof);
+        $__internal_7ba4f44b3ba0562f8f711d0679ad8b007e67cbae74215cc744fb292461681dcb->leave($__internal_7ba4f44b3ba0562f8f711d0679ad8b007e67cbae74215cc744fb292461681dcb_prof);
 
     }
 
@@ -495,7 +494,7 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
 
     public function getDebugInfo()
     {
-        return array (  456 => 295,  417 => 259,  393 => 238,  380 => 228,  375 => 226,  371 => 224,  366 => 217,  362 => 216,  358 => 215,  349 => 209,  343 => 206,  339 => 205,  335 => 203,  326 => 202,  308 => 15,  304 => 14,  298 => 11,  294 => 10,  288 => 7,  285 => 6,  276 => 5,  255 => 189,  242 => 181,  238 => 179,  234 => 177,  232 => 176,  227 => 175,  223 => 174,  219 => 173,  215 => 172,  211 => 171,  208 => 170,  204 => 169,  56 => 23,  54 => 5,  51 => 4,  42 => 3,  11 => 1,);
+        return array (  455 => 295,  416 => 259,  392 => 238,  379 => 228,  374 => 226,  370 => 224,  365 => 217,  361 => 216,  357 => 215,  348 => 209,  342 => 206,  338 => 205,  334 => 203,  325 => 202,  307 => 15,  303 => 14,  297 => 11,  293 => 10,  287 => 7,  284 => 6,  275 => 5,  254 => 189,  241 => 181,  237 => 179,  233 => 177,  231 => 176,  227 => 175,  223 => 174,  219 => 173,  215 => 172,  211 => 171,  208 => 170,  204 => 169,  56 => 23,  54 => 5,  51 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -568,7 +567,7 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                                     </form>
                                 </div>
                                 <div class=\"form ajout\" id=\"formType\">
-                                    <form method=\"POST\" class=\"form-inline formAdd\" role=\"form\">
+                                    <form method=\"POST\" class=\"form-inline formAdd\" enctype=\"multipart/form-data\" role=\"form\">
                                         <div class=\"form-group\">
                                             <label class=\"control-label\"><i>Type de bien: </i></label>
                                             <input name=\"libelle\" type=\"text\" class=\"form-control libelle\"  placeholder=\"Entrer le type de bien\">
@@ -579,17 +578,17 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                                 </div>
                             </div>
                             <div class=\"form\">
-                                <form class=\"cmxform form-horizontal tasi-form\" id=\"commentForm\" method=\"POST\" action=\"#\" novalidate=\"novalidate\">
+                                <form class=\"cmxform form-horizontal tasi-form\" id=\"commentForm\" method=\"POST\" action=\"\" novalidate=\"novalidate\">
                                     <div class=\"form-group\">
                                         <label for=\"cname\" class=\"control-label col-lg-2\">Nom du bien</label>
                                         <div class=\"col-lg-9\">
-                                            <input class=\"form-control\" id=\"cname\" name=\"name\" type=\"text\" required=\"\" aria-required=\"true\">
+                                            <input class=\"form-control\" id=\"cname\" name=\"nom\" type=\"text\" required=\"\" aria-required=\"true\">
                                         </div>
                                     </div>
                                     <div class=\"form-group\">
                                         <label for=\"cemail\" class=\"control-label col-lg-2\">Type de bien</label>
                                         <div class=\"col-lg-9\">
-                                            <select name=\"localite\" id=\"seltype\" class=\"select2 form-control\" data-placeholder=\"Choisir une localité\">
+                                            <select name=\"type\" id=\"seltype\" class=\"select2 form-control\" data-placeholder=\"Choisir une localité\">
                                                 
                                             </select>
                                         </div>
@@ -612,13 +611,13 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                                     <div class=\"form-group\">
                                         <label for=\"cname\" class=\"control-label col-lg-2\">Prix location</label>
                                         <div class=\"col-lg-9\">
-                                            <input class=\"form-control\" id=\"cname\" name=\"name\" type=\"number\" required=\"\" aria-required=\"true\">
+                                            <input class=\"form-control\" id=\"cname\" name=\"prix\" type=\"number\" required=\"\" aria-required=\"true\">
                                         </div>
                                     </div>
                                     <div class=\"form-group\">
                                         <label for=\"ccomment\" class=\"control-label col-lg-2\">Description</label>
                                         <div class=\"col-lg-9\">
-                                            <textarea class=\"form-control\" id=\"ccomment\" name=\"comment\" required=\"\" aria-required=\"true\"></textarea>
+                                            <textarea class=\"form-control\" id=\"ccomment\" name=\"description\" required=\"\" aria-required=\"true\"></textarea>
                                         </div>
                                     </div>
                                     <div class=\"form-group\">
@@ -629,7 +628,7 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                                                 <div class=\"m-b-30\">
                                                     <div action=\"#\" class=\"dropzone\" id=\"dropzone\">
                                                     <div class=\"fallback\">
-                                                        <input name=\"file\" type=\"file\" multiple=\"multiple\">
+                                                        <input type=\"file\" multiple=\"multiple\" name=\"image\">
                                                     </div>
                                                     </div>
                                                 </div>
@@ -682,7 +681,7 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                         <td>{{ bien.type.libelle }}</td>
                         <td>{{ bien.localite.libelle }}</td>
                         <td>{{ bien.prixlocation }}</td>
-                        <td><img src=\"{{asset('image/')}}{{ bien.images[0].image }}\"></td>
+                        <td><img src=\"data:image/png;base64,{{ bien.images[0].image }}\"></td>
                         {% if bien.etat == 1 %}
                         <td>Disponible</td>
                         {% else %}
@@ -691,8 +690,8 @@ class __TwigTemplate_43dde4592534f367240e0e1a0da06f72a2eebd5e07ebda30ada74fad803
                         <td class=\"actions\">
                             <a href=\"#\" class=\"hidden on-editing save-row\"><i class=\"fa fa-save\"></i></a>
                             <a href=\"#\" class=\"hidden on-editing cancel-row\"><i class=\"fa fa-times\"></i></a>
-                            <a href=\"#\" class=\"on-default edit-row\"><i class=\"fa fa-pencil\"></i></a>
-                            <a href=\"#\" class=\"on-default remove-row\"><i class=\"fa fa-trash-o\"></i></a>
+                            <a href=\"#\" class=\"on-default edit-row\"><i class=\"fa fa-pencil\"></i></a>  |  
+                            <a href=\"#\" class=\"on-default text-danger remove-row\"><i class=\"fa fa-trash-o\"></i></a>
                         </td>
                     </tr>
                 {% endfor %}

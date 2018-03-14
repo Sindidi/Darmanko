@@ -64,10 +64,10 @@ class Bien extends \SNT\DarmankoBundle\Entity\Bien implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'nomBien', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'prixLocation', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'localite', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'type', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'bien', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'images'];
+            return ['__isInitialized__', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'nomBien', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'prixLocation', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'localite', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'type', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'bien', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'images', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'proprietaire'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'nomBien', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'prixLocation', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'localite', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'type', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'bien', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'images'];
+        return ['__isInitialized__', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'id', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'nomBien', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'etat', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'prixLocation', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'description', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'localite', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'type', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'bien', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'images', '' . "\0" . 'SNT\\DarmankoBundle\\Entity\\Bien' . "\0" . 'proprietaire'];
     }
 
     /**
@@ -373,6 +373,28 @@ class Bien extends \SNT\DarmankoBundle\Entity\Bien implements \Doctrine\ORM\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrixLocation', []);
 
         return parent::getPrixLocation();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setProprietaire(\SNT\DarmankoBundle\Entity\Proprietaire $proprietaire = NULL)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setProprietaire', [$proprietaire]);
+
+        return parent::setProprietaire($proprietaire);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProprietaire()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProprietaire', []);
+
+        return parent::getProprietaire();
     }
 
 }

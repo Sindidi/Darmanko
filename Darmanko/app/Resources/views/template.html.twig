@@ -10,7 +10,7 @@
 	<meta name="description" content="Multipress - Responsive Multipurpose HTML5 Template">
 	<meta name="author" content="">
 
-	<title>SG-immobilier</title>
+	<title>DARMANKO-immobilier</title>
 
 	<!-- Mobile Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +52,7 @@
       <div class="col-md-12">
          <!-- Logo -->
          <div class="col-md-2">
-            <h1 class="logo"><a href="{{path('list')}}"><img src="{{asset('image/logo.png')}}" style="width: 100px;"></a></h1>
+            <h1 class="logo"><a href="{{path('list')}}">Darmanko{#<img src="{{asset('image/logo.png')}}" style="width: 100px;">#}</a></h1>
          </div>
          
         <!-- Navmenu -->
@@ -65,16 +65,12 @@
                   
                   <li class='has-sub'> <a href='{{path('catalogue')}}'><span>Biens</span></a>
                   </li>
-                  <li class='has-sub'>
-                     <a href='#'><span>Blog</span></a>
-                     
-                  </li>
-                  <li class='has-sub-full'>
-                     <a href='#'><span>A propos</span></a>
-                              
-                  </li>
+				  
                   <li class="has-sub" class="dropdown-content">
                      <a href='#'><span>Mon compte</span></a>
+                  </li>
+				  <li class="has-sub" class="dropdown-content">
+                     <a href='{{path('upload')}}'><span><img src="{{asset('image/uplaodr.png')}}" style="width: 20px;"></span></a>
                   </li>
                </ul>
             </div>

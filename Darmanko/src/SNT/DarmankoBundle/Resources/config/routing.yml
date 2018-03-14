@@ -12,9 +12,17 @@ detail:
     requirements:
         id: \d+
 
+upload:
+    path:     /darmanko/upload
+    defaults: { _controller: SNTDarmankoBundle:reservation:upload }
+
 catalogue:
     path:     /darmanko
     defaults: { _controller: SNTDarmankoBundle:reservation:catalogue }
+
+login:
+    path:     /admin/login
+    defaults: { _controller: SNTDarmankoBundle:admin:login }
 
 admin:
     path:     /admin
@@ -55,6 +63,10 @@ ajaxType:
 ajaxAddSelect:
     path:     /admin/ajaxAddSelect
     defaults: { _controller: SNTDarmankoBundle:admin:ajaxAddSelect }
+
+ajaxConnexion:
+    path:     /admin/ajaxConnexion
+    defaults: { _controller: SNTDarmankoBundle:admin:ajaxConnexion }
 
 
 

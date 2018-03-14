@@ -1,0 +1,88 @@
+{% extends "::template.html.twig" %}
+
+{% block content %}
+
+<!-- Page-head -->
+<div class="page-head">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Vous êtes sur la plate forme d'enregistrement de bien</h3>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- Page-head -->
+
+<div class="container">
+<div class="col-lg-8">
+<div class="card" style=" height:400px;">
+<div class="card-header">
+ <h4 style="font-family:Goudy Old style; color:black;"><center><i> Information du Bien</i></center></h4>
+</div>
+<div class="card-body">
+
+<form class="contact-form">
+ <label for="email">Login:</label>
+<input type="text" name="login" class="form-control mx-sm-1" required placeholder="Entrer votre email"><div class="space20"></div>
+<label for="email">Password:</label>
+ <input type="text" name="password" class="form-control mx-sm-1" required placeholder="mot de passe"><div class="space20"></div>
+<label for="email">Nom :</label>
+<input type="text" class="form-control"required placeholder="veuillez saisir votre Nom"/>
+<label for="email">Description :</label>
+<input type="text" class="form-control"required placeholder="veuillez saisir la description"/>
+<label for="email">Localité:</label>
+<input type="text" class="form-control"required placeholder="veuillez saisir la localité..."/>
+<label for="email">Type:</label>
+<input type="text" class="form-control"required placeholder="veuillez saisir le type"/>
+<label for="email">Prix location:</label>
+ <input type="number" class="form-control" required placeholder="veuillez saisir le prix de la location"/>
+ <label for="email">image:</label>
+<input type="file"/>
+<div class="space25"></div>
+<input type="submit" class="b-blue btn" ></button>
+</form>
+<br>
+ </div>
+</div>
+</div>
+
+{# ----------------------------------------------------------- #}
+
+<div class="col-lg-4">
+    <div class="card">
+  <div class="card-header" >
+ 
+  </div><br><br>
+  
+  <div class="card-body">
+  <form  method="POST" class="form">
+ 
+ <center><button id="btnCompte "style="float:right;" class="btn btn-danger">Créer un compte</button></center>
+     </form><br>
+    
+   <form id="form2"class="contact-form">
+
+        <label for="email">Nom :</label>
+        <input type="text" class="form-control"required  placeholder="veuillez saisir votre Nom"/>
+        <label for="email">Prénom :</label>
+        <input type="text" class="form-control"required  placeholder="veuillez saisir votre prénom"/>
+        <label for="email">Adresse:</label>
+        <input type="text" class="form-control"required  placeholder="veuillez saisir votre adresse..."/>
+        <label for="email">numéro de pièce:</label>
+        <input type="number" class="form-control" required placeholder="veuillez saisir votre numéro de pièce"/>
+        <label for="email">Téléphone:</label>
+        <input type="number" class="form-control" required placeholder="veuillez saisir le numéro de téléphone"/>
+        <label for="email">Email:</label>
+        <input type="email" class="form-control"required  placeholder="veuillez saisir votre Email"/>
+        <div class="space25"></div>
+        <input type="submit" class="b-blue btn"></button>
+    </form>
+    </div>
+  
+</div>
+</div>
+</div>
+{% endblock %}

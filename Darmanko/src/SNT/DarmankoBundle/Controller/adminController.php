@@ -9,9 +9,30 @@ use SNT\DarmankoBundle\Entity\TypeBien;
 use SNT\DarmankoBundle\Entity\Bien;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
+use SNT\DarmankoBundle\Entity\Image;
 
 class adminController extends Controller
 {
+    public function loginAction()
+    {
+        return $this->render('SNTDarmankoBundle:admin:login.html.twig', array(
+        ));
+    }
+
+    public function ajaxConnexionAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $proprietaire = $em->getRepository('SNTDarmankoBundle:Proprietaire')->findBy(
+            array('email' => $request->get('email'), 'password' => $request->get('password'))
+        );
+
+        if ($proprietaire) {
+            return new Response('ok');
+        } else {
+            return new Response('error');
+        }
+    }
+
     public function accueilAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -37,9 +58,7 @@ class adminController extends Controller
 
         foreach ($reservation as $cle => $reservations) {
             foreach ($reservations->getBien()->getImages() as $key => $images) {
-                foreach ($images as $key => $image) {
-                    $image->setImage(base64_encode(stream_get_contents($image->getImage())));
-                }
+                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
             }
         }
 
@@ -48,12 +67,22 @@ class adminController extends Controller
         ));
     }
 
-    public function bienAction()
+    public function bienAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $bien = $em->getRepository('SNTDarmankoBundle:Bien')->findAll();
         $localites = $em->getRepository('SNTDarmankoBundle:Localite')->findAll();
         $types = $em->getRepository('SNTDarmankoBundle:TypeBien')->findAll();
+
+        if ($request->isMethod('POST')) {
+            $images = $_FILES['image'];
+        }
+
+        foreach ($bien as $key => $value) {
+            foreach ($value->getImages() as $key1 => $images) {
+                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
+            }
+        }
 
         return $this->render('SNTDarmankoBundle:admin:bien.html.twig', array(
             'biens' => $bien, 'localites' => $localites, 'types' => $types,

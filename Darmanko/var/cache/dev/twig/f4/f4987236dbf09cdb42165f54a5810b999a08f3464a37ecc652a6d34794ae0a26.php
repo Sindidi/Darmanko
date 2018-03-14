@@ -21,29 +21,29 @@ class __TwigTemplate_047fa47ace63b2d62b0f0c6022ace15c45b942591e848e089d74b09e9e9
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_1928ea571958dbec02f223859bc1700a110241215bcbe52eaedec63431bc52e1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_1928ea571958dbec02f223859bc1700a110241215bcbe52eaedec63431bc52e1->enter($__internal_1928ea571958dbec02f223859bc1700a110241215bcbe52eaedec63431bc52e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SNTDarmankoBundle:admin:contrat.html.twig"));
+        $__internal_e071a3f74b2ecb963a04884c2351d5221eb5b89ba255202ab4070e67b0423576 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e071a3f74b2ecb963a04884c2351d5221eb5b89ba255202ab4070e67b0423576->enter($__internal_e071a3f74b2ecb963a04884c2351d5221eb5b89ba255202ab4070e67b0423576_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SNTDarmankoBundle:admin:contrat.html.twig"));
 
-        $__internal_9d370899cff841411e3dfb01a9b2e20929e2e9ef80b23ec9f467d97c2039a5fa = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9d370899cff841411e3dfb01a9b2e20929e2e9ef80b23ec9f467d97c2039a5fa->enter($__internal_9d370899cff841411e3dfb01a9b2e20929e2e9ef80b23ec9f467d97c2039a5fa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SNTDarmankoBundle:admin:contrat.html.twig"));
+        $__internal_139759553e00e11fd559e92c40d622cfc594d17d3bc823c0406c07939297c8d6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_139759553e00e11fd559e92c40d622cfc594d17d3bc823c0406c07939297c8d6->enter($__internal_139759553e00e11fd559e92c40d622cfc594d17d3bc823c0406c07939297c8d6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SNTDarmankoBundle:admin:contrat.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_1928ea571958dbec02f223859bc1700a110241215bcbe52eaedec63431bc52e1->leave($__internal_1928ea571958dbec02f223859bc1700a110241215bcbe52eaedec63431bc52e1_prof);
+        $__internal_e071a3f74b2ecb963a04884c2351d5221eb5b89ba255202ab4070e67b0423576->leave($__internal_e071a3f74b2ecb963a04884c2351d5221eb5b89ba255202ab4070e67b0423576_prof);
 
         
-        $__internal_9d370899cff841411e3dfb01a9b2e20929e2e9ef80b23ec9f467d97c2039a5fa->leave($__internal_9d370899cff841411e3dfb01a9b2e20929e2e9ef80b23ec9f467d97c2039a5fa_prof);
+        $__internal_139759553e00e11fd559e92c40d622cfc594d17d3bc823c0406c07939297c8d6->leave($__internal_139759553e00e11fd559e92c40d622cfc594d17d3bc823c0406c07939297c8d6_prof);
 
     }
 
     // line 3
     public function block_content($context, array $blocks = array())
     {
-        $__internal_0a2def3e0024ece4418d2b660dbd29b00e05df761850afe1af71636376219f87 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0a2def3e0024ece4418d2b660dbd29b00e05df761850afe1af71636376219f87->enter($__internal_0a2def3e0024ece4418d2b660dbd29b00e05df761850afe1af71636376219f87_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_836f0e6abb261275bdc9741174cfa5e86c37256be35d418262e13442f9a55c0d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_836f0e6abb261275bdc9741174cfa5e86c37256be35d418262e13442f9a55c0d->enter($__internal_836f0e6abb261275bdc9741174cfa5e86c37256be35d418262e13442f9a55c0d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
-        $__internal_b388a9e243fca67057fe95bfdbf6827cabfe323ce110a80e1081d3382ff8475a = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b388a9e243fca67057fe95bfdbf6827cabfe323ce110a80e1081d3382ff8475a->enter($__internal_b388a9e243fca67057fe95bfdbf6827cabfe323ce110a80e1081d3382ff8475a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
+        $__internal_5ac6132c75812d027ca3a3e5561e703f1f4b42312257ed9c387074ceff110b03 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_5ac6132c75812d027ca3a3e5561e703f1f4b42312257ed9c387074ceff110b03->enter($__internal_5ac6132c75812d027ca3a3e5561e703f1f4b42312257ed9c387074ceff110b03_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "content"));
 
         // line 4
         echo "
@@ -165,13 +165,20 @@ class __TwigTemplate_047fa47ace63b2d62b0f0c6022ace15c45b942591e848e089d74b09e9e9
     </div>
 </div>
 
+<center>
+    <a href=\"";
+        // line 82
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("reservation", array("id" => $this->getAttribute(($context["reservation"] ?? $this->getContext($context, "reservation")), "id", array()))), "html", null, true);
+        echo "\"><button type=\"button\" class=\"btn btn-danger waves-effect waves-light m-b-5\">Retour</button></a>
+</center>   
+
 
 ";
         
-        $__internal_b388a9e243fca67057fe95bfdbf6827cabfe323ce110a80e1081d3382ff8475a->leave($__internal_b388a9e243fca67057fe95bfdbf6827cabfe323ce110a80e1081d3382ff8475a_prof);
+        $__internal_5ac6132c75812d027ca3a3e5561e703f1f4b42312257ed9c387074ceff110b03->leave($__internal_5ac6132c75812d027ca3a3e5561e703f1f4b42312257ed9c387074ceff110b03_prof);
 
         
-        $__internal_0a2def3e0024ece4418d2b660dbd29b00e05df761850afe1af71636376219f87->leave($__internal_0a2def3e0024ece4418d2b660dbd29b00e05df761850afe1af71636376219f87_prof);
+        $__internal_836f0e6abb261275bdc9741174cfa5e86c37256be35d418262e13442f9a55c0d->leave($__internal_836f0e6abb261275bdc9741174cfa5e86c37256be35d418262e13442f9a55c0d_prof);
 
     }
 
@@ -187,7 +194,7 @@ class __TwigTemplate_047fa47ace63b2d62b0f0c6022ace15c45b942591e848e089d74b09e9e9
 
     public function getDebugInfo()
     {
-        return array (  142 => 56,  137 => 54,  121 => 41,  117 => 40,  113 => 39,  109 => 38,  105 => 37,  92 => 27,  88 => 26,  84 => 25,  80 => 24,  76 => 23,  61 => 11,  57 => 10,  49 => 4,  40 => 3,  11 => 1,);
+        return array (  171 => 82,  142 => 56,  137 => 54,  121 => 41,  117 => 40,  113 => 39,  109 => 38,  105 => 37,  92 => 27,  88 => 26,  84 => 25,  80 => 24,  76 => 23,  61 => 11,  57 => 10,  49 => 4,  40 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -279,6 +286,10 @@ class __TwigTemplate_047fa47ace63b2d62b0f0c6022ace15c45b942591e848e089d74b09e9e9
         </div>
     </div>
 </div>
+
+<center>
+    <a href=\"{{ path('reservation', {\"id\": reservation.id}) }}\"><button type=\"button\" class=\"btn btn-danger waves-effect waves-light m-b-5\">Retour</button></a>
+</center>   
 
 
 {% endblock %}", "SNTDarmankoBundle:admin:contrat.html.twig", "/var/www/html/perso/Darmanko/src/SNT/DarmankoBundle/Resources/views/admin/contrat.html.twig");

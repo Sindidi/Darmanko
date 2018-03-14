@@ -60,7 +60,7 @@
                                     <td>{{ reservation.bien.nomBien }}</td>
                                     <td>{{ reservation.bien.prixLocation }}</td>
                                     <td>{{ reservation.bien.localite.libelle }}</td>
-                                    <td><img src="data:image/png;base64,{{ base64_encode(reservation.bien.images[0].image)  }}"></td>
+                                    <td><img src="data:image/png;base64,{{ reservation.bien.images[0].image  }}"></td>
                                 </tr>
                                 {% endfor %}
                             </tbody>

@@ -128,6 +128,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
 
         if (0 === strpos($pathinfo, '/admin')) {
+            // login
+            if ('/admin/login' === $pathinfo) {
+                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::loginAction',  '_route' => 'login',);
+            }
+
             // admin
             if ('/admin' === $pathinfo) {
                 return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::accueilAction',  '_route' => 'admin',);
@@ -182,6 +187,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxAddSelectAction',  '_route' => 'ajaxAddSelect',);
                 }
 
+                // ajaxConnexion
+                if ('/admin/ajaxConnexion' === $pathinfo) {
+                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxConnexionAction',  '_route' => 'ajaxConnexion',);
+                }
+
             }
 
         }
@@ -191,9 +201,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return $this->mergeDefaults(array_replace($matches, array('_route' => 'detail')), array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\reservationController::detailAction',));
         }
 
-        // catalogue
-        if ('/darmanko' === $pathinfo) {
-            return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\reservationController::catalogueAction',  '_route' => 'catalogue',);
+        if (0 === strpos($pathinfo, '/darmanko')) {
+            // upload
+            if ('/darmanko/upload' === $pathinfo) {
+                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\reservationController::uploadAction',  '_route' => 'upload',);
+            }
+
+            // catalogue
+            if ('/darmanko' === $pathinfo) {
+                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\reservationController::catalogueAction',  '_route' => 'catalogue',);
+            }
+
         }
 
         // homepage

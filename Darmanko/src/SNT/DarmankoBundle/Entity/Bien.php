@@ -71,6 +71,12 @@ class Bien
     private $images;
 
     /**
+     * @ORM\ManyToOne(targetEntity="SNT\DarmankoBundle\Entity\Proprietaire")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $proprietaire;
+
+    /**
      * Get id.
      *
      * @return int
@@ -285,5 +291,29 @@ class Bien
     public function getPrixLocation()
     {
         return $this->prixLocation;
+    }
+
+    /**
+     * Set proprietaire
+     *
+     * @param \SNT\DarmankoBundle\Entity\Proprietaire $proprietaire
+     *
+     * @return Bien
+     */
+    public function setProprietaire(\SNT\DarmankoBundle\Entity\Proprietaire $proprietaire = null)
+    {
+        $this->proprietaire = $proprietaire;
+
+        return $this;
+    }
+
+    /**
+     * Get proprietaire
+     *
+     * @return \SNT\DarmankoBundle\Entity\Proprietaire
+     */
+    public function getProprietaire()
+    {
+        return $this->proprietaire;
     }
 }

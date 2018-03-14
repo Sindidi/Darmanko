@@ -44,14 +44,6 @@ class reservationController extends Controller
             }
         }
 
-        // Pagination des biens
-        $paginator = $this->get('knp_paginator');
-        $result = $paginator->paginate(
-            $listbien,
-            $req->query->getInt('page', 1),
-            $req->query->getInt('limit', 4)
-        );
-
         foreach ($listbien as $key => $value) {
             foreach ($value->getImages() as $key1 => $images) {
                 $images->setImage(base64_encode(stream_get_contents($images->getImage())));
@@ -153,6 +145,11 @@ class reservationController extends Controller
     public function confirmAction()
     {
         return $this->render('SNTDarmankoBundle:reservation:confirm.html.twig', array());
+    }
+
+    public function uploadAction()
+    {
+        return $this->render('SNTDarmankoBundle:reservation:upload.html.twig', array());
     }
 
     public function testAction()

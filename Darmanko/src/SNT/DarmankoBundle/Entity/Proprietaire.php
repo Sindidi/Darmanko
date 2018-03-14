@@ -5,7 +5,7 @@ namespace SNT\DarmankoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Proprietaire
+ * Proprietaire.
  *
  * @ORM\Table(name="proprietaire")
  * @ORM\Entity(repositoryClass="SNT\DarmankoBundle\Repository\ProprietaireRepository")
@@ -24,7 +24,7 @@ class Proprietaire
     /**
      * @var int
      *
-     * @ORM\Column(name="numpiece", type="integer", nullable=true, unique=true)
+     * @ORM\Column(name="numpiece", type="string", length=50, nullable=true, unique=true)
      */
     private $numpiece;
 
@@ -63,9 +63,15 @@ class Proprietaire
      */
     private $codeBanque;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=50, nullable=true)
+     */
+    private $password;
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -75,9 +81,9 @@ class Proprietaire
     }
 
     /**
-     * Set numpiece
+     * Set numpiece.
      *
-     * @param integer $numpiece
+     * @param int $numpiece
      *
      * @return Proprietaire
      */
@@ -89,7 +95,7 @@ class Proprietaire
     }
 
     /**
-     * Get numpiece
+     * Get numpiece.
      *
      * @return int
      */
@@ -99,7 +105,7 @@ class Proprietaire
     }
 
     /**
-     * Set nomComplet
+     * Set nomComplet.
      *
      * @param string $nomComplet
      *
@@ -113,7 +119,7 @@ class Proprietaire
     }
 
     /**
-     * Get nomComplet
+     * Get nomComplet.
      *
      * @return string
      */
@@ -123,7 +129,7 @@ class Proprietaire
     }
 
     /**
-     * Set adresse
+     * Set adresse.
      *
      * @param string $adresse
      *
@@ -137,7 +143,7 @@ class Proprietaire
     }
 
     /**
-     * Get adresse
+     * Get adresse.
      *
      * @return string
      */
@@ -147,7 +153,7 @@ class Proprietaire
     }
 
     /**
-     * Set tel
+     * Set tel.
      *
      * @param string $tel
      *
@@ -161,7 +167,7 @@ class Proprietaire
     }
 
     /**
-     * Get tel
+     * Get tel.
      *
      * @return string
      */
@@ -171,7 +177,7 @@ class Proprietaire
     }
 
     /**
-     * Set email
+     * Set email.
      *
      * @param string $email
      *
@@ -185,7 +191,7 @@ class Proprietaire
     }
 
     /**
-     * Get email
+     * Get email.
      *
      * @return string
      */
@@ -195,7 +201,7 @@ class Proprietaire
     }
 
     /**
-     * Set codeBanque
+     * Set codeBanque.
      *
      * @param string $codeBanque
      *
@@ -209,7 +215,7 @@ class Proprietaire
     }
 
     /**
-     * Get codeBanque
+     * Get codeBanque.
      *
      * @return string
      */
@@ -217,5 +223,28 @@ class Proprietaire
     {
         return $this->codeBanque;
     }
-}
 
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return Proprietaire
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+}
