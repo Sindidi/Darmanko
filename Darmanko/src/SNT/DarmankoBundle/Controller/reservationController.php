@@ -22,6 +22,11 @@ class reservationController extends Controller
                 $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->findAll();
             } else {
                 $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->search($_POST['localite'], $_POST['type'], $_POST['max']);
+                foreach ($listbien as $key => $value) {
+                    foreach ($value->getImages() as $key1 => $images) {
+                        $images->setImage(base64_encode(stream_get_contents($images->getImage())));
+                    }
+                }
             }
         } else {
             $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->findAll();

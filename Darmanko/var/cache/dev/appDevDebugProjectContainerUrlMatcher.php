@@ -122,77 +122,110 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\DefaultController::indexAction',  '_route' => 'snt_darmanko_homepage',);
         }
 
-        // list
-        if ('/accueil' === $pathinfo) {
-            return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\reservationController::listAction',  '_route' => 'list',);
-        }
-
-        if (0 === strpos($pathinfo, '/admin')) {
-            // login
-            if ('/admin/login' === $pathinfo) {
-                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::loginAction',  '_route' => 'login',);
+        if (0 === strpos($pathinfo, '/a')) {
+            // list
+            if ('/accueil' === $pathinfo) {
+                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\reservationController::listAction',  '_route' => 'list',);
             }
 
-            // admin
-            if ('/admin' === $pathinfo) {
-                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::accueilAction',  '_route' => 'admin',);
-            }
-
-            // bien
-            if ('/admin/bien' === $pathinfo) {
-                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::bienAction',  '_route' => 'bien',);
-            }
-
-            if (0 === strpos($pathinfo, '/admin/reservation')) {
-                // enCours
-                if ('/admin/reservationEnCours' === $pathinfo) {
-                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::enCoursAction',  '_route' => 'enCours',);
+            if (0 === strpos($pathinfo, '/admin')) {
+                // login
+                if ('/admin/login' === $pathinfo) {
+                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::loginAction',  '_route' => 'login',);
                 }
 
-                // reservation
-                if (preg_match('#^/admin/reservation/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'reservation')), array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::reservationAction',));
+                // admin
+                if ('/admin' === $pathinfo) {
+                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::accueilAction',  '_route' => 'admin',);
+                }
+
+                if (0 === strpos($pathinfo, '/admin/bien')) {
+                    // bien
+                    if ('/admin/bien' === $pathinfo) {
+                        return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::bienAction',  '_route' => 'bien',);
+                    }
+
+                    // enAttente
+                    if ('/admin/bienAttente' === $pathinfo) {
+                        return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::bienAttenteAction',  '_route' => 'enAttente',);
+                    }
+
+                }
+
+                elseif (0 === strpos($pathinfo, '/admin/reservation')) {
+                    // enCours
+                    if ('/admin/reservationEnCours' === $pathinfo) {
+                        return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::enCoursAction',  '_route' => 'enCours',);
+                    }
+
+                    // reservation
+                    if (preg_match('#^/admin/reservation/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'reservation')), array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::reservationAction',));
+                    }
+
+                }
+
+                // contrat
+                if (0 === strpos($pathinfo, '/admin/contrat') && preg_match('#^/admin/contrat/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'contrat')), array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::contratAction',));
+                }
+
+                // localite
+                if ('/admin/localite' === $pathinfo) {
+                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::localiteAction',  '_route' => 'localite',);
+                }
+
+                // type
+                if ('/admin/type' === $pathinfo) {
+                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::typeAction',  '_route' => 'type',);
+                }
+
+                if (0 === strpos($pathinfo, '/admin/ajax')) {
+                    // ajaxLocalite
+                    if ('/admin/ajaxLocalite' === $pathinfo) {
+                        return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxLocaliteAction',  '_route' => 'ajaxLocalite',);
+                    }
+
+                    // ajaxType
+                    if ('/admin/ajaxtype' === $pathinfo) {
+                        return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxtypeAction',  '_route' => 'ajaxType',);
+                    }
+
+                    // ajaxAddSelect
+                    if ('/admin/ajaxAddSelect' === $pathinfo) {
+                        return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxAddSelectAction',  '_route' => 'ajaxAddSelect',);
+                    }
+
+                    // ajaxConnexion
+                    if ('/admin/ajaxConnexion' === $pathinfo) {
+                        return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxConnexionAction',  '_route' => 'ajaxConnexion',);
+                    }
+
                 }
 
             }
 
-            // contrat
-            if (0 === strpos($pathinfo, '/admin/contrat') && preg_match('#^/admin/contrat/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'contrat')), array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::contratAction',));
-            }
-
-            // localite
-            if ('/admin/localite' === $pathinfo) {
-                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::localiteAction',  '_route' => 'localite',);
-            }
-
-            // type
-            if ('/admin/type' === $pathinfo) {
-                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::typeAction',  '_route' => 'type',);
-            }
-
-            if (0 === strpos($pathinfo, '/admin/ajax')) {
-                // ajaxLocalite
-                if ('/admin/ajaxLocalite' === $pathinfo) {
-                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxLocaliteAction',  '_route' => 'ajaxLocalite',);
+            // AjouterBien
+            if ('/add' === $pathinfo) {
+                if ('POST' !== $canonicalMethod) {
+                    $allow[] = 'POST';
+                    goto not_AjouterBien;
                 }
 
-                // ajaxType
-                if ('/admin/ajaxtype' === $pathinfo) {
-                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxtypeAction',  '_route' => 'ajaxType',);
-                }
-
-                // ajaxAddSelect
-                if ('/admin/ajaxAddSelect' === $pathinfo) {
-                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxAddSelectAction',  '_route' => 'ajaxAddSelect',);
-                }
-
-                // ajaxConnexion
-                if ('/admin/ajaxConnexion' === $pathinfo) {
-                    return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::ajaxConnexionAction',  '_route' => 'ajaxConnexion',);
-                }
-
+                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\apiController::addAction',  '_route' => 'AjouterBien',);
             }
+            not_AjouterBien:
+
+            // Tout
+            if ('/all' === $pathinfo) {
+                if ('GET' !== $canonicalMethod) {
+                    $allow[] = 'GET';
+                    goto not_Tout;
+                }
+
+                return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\apiController::AllAction',  '_route' => 'Tout',);
+            }
+            not_Tout:
 
         }
 

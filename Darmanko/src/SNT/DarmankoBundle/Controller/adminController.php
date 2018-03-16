@@ -74,9 +74,44 @@ class adminController extends Controller
         $localites = $em->getRepository('SNTDarmankoBundle:Localite')->findAll();
         $types = $em->getRepository('SNTDarmankoBundle:TypeBien')->findAll();
 
-        if ($request->isMethod('POST')) {
-            $images = $_FILES['image'];
+        foreach ($bien as $key => $value) {
+            foreach ($value->getImages() as $key1 => $images) {
+                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
+            }
         }
+
+        if ($request->isMethod('POST')) {
+            $localite = $em->getRepository('SNTDarmankoBundle:Localite')->find($request->get('localite'));
+            $type = $em->getRepository('SNTDarmankoBundle:TypeBien')->find($request->get('type'));
+            $bien = new Bien();
+            $bien->setNomBien($request->get('nom'));
+            $bien->setType($type);
+            $bien->setLocalite($localite);
+            $bien->setDescription($request->get('description'));
+            $bien->setPrixLocation($request->get('prix'));
+            $bien->setEtat(-1);
+            $em->persist($bien);
+            $images = $_FILES['image'];
+
+            foreach ($images as $key => $value) {
+                $image = new Image();
+                $em->persist($image);
+                $image->setImage($value);
+                $image->setBien($bien);
+            }
+
+            $em->flush();
+        }
+
+        return $this->render('SNTDarmankoBundle:admin:bien.html.twig', array(
+            'biens' => $bien, 'localites' => $localites, 'types' => $types,
+        ));
+    }
+
+    public function bienAttenteAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $bien = $em->getRepository('SNTDarmankoBundle:Bien')->findBy(array('etat' => -1));
 
         foreach ($bien as $key => $value) {
             foreach ($value->getImages() as $key1 => $images) {
@@ -84,8 +119,8 @@ class adminController extends Controller
             }
         }
 
-        return $this->render('SNTDarmankoBundle:admin:bien.html.twig', array(
-            'biens' => $bien, 'localites' => $localites, 'types' => $types,
+        return $this->render('SNTDarmankoBundle:admin:bienAttente.html.twig', array(
+            'biens' => $bien,
         ));
     }
 

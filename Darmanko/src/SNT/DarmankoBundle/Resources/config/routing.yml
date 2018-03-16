@@ -32,6 +32,10 @@ bien:
     path:     /admin/bien
     defaults: { _controller: SNTDarmankoBundle:admin:bien }
 
+enAttente:
+    path:     /admin/bienAttente
+    defaults: { _controller: SNTDarmankoBundle:admin:bienAttente }
+
 enCours:
     path:     /admin/reservationEnCours
     defaults: { _controller: SNTDarmankoBundle:admin:enCours }

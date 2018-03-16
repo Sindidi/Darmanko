@@ -4,6 +4,7 @@
 
     <!-- Dropzone css -->
     <link href="{{ asset('assets/plugins/dropzone/dist/dropzone.css')}}" rel="stylesheet" type="text/css">
+    
 
 {% endblock %}
 
@@ -24,60 +25,102 @@
 
 <div class="container">
     <form method="POST" enctype="multipart/form-data">
-        <div class="col-lg-6">
-            <h3 class="text-primary">Information du client</h3>
-            <div class="space20"></div>
-            <div class"form-group">
-                <label for="email">Nom du bien</label>
-                <input type="text" name="nom" class="form-control mx-sm-1" required placeholder="Entrer le nom du bien"><br>
-            </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="text-primary">Information du client</h3>
+                <div class="space20"></div>
+                <div class"form-group">
+                    <label for="email">Nom du bien</label>
+                    <input type="text" name="nom" class="form-control mx-sm-1" required placeholder="Entrer le nom du bien"><br>
+                </div>
 
-            <div class"form-group">
-                <label for="email">Type du bien</label>
-                <input type="text" name="type" class="form-control mx-sm-1" required placeholder="Entrer le type du bien"><br>
-            </div>
+                <div class"form-group">
+                    <label for="email">Type du bien</label>
+                    <input type="text" id="autoType" name="type" class="form-control mx-sm-1" required placeholder="Entrer le type du bien"><br>
+                </div>
 
-            <div class"form-group">
-                <label for="email">Localité du bien</label>
-                <input type="text" name="localite" class="form-control mx-sm-1" required placeholder="Entrer la localité du bien"><br>
-            </div>
+                <div class"form-group">
+                    <label for="email">Localité du bien</label>
+                    <input type="text" id="autoLocalite" name="localite" class="form-control mx-sm-1" required placeholder="Entrer la localité du bien"><br>
+                </div>
 
-            <div class"form-group">
-                <label for="email">Proposez votre prix</label>
-                <input type="text" name="prix" class="form-control mx-sm-1" required placeholder="Entrer le prix de location"><br>
-            </div>
+                <div class"form-group">
+                    <label for="email">Description du bien</label>
+                <textarea name="description" class="form-control mx-sm-1" required placeholder="Entrer la description"></textarea><br>
+                </div>
 
-            <div class"form-group">
-                <label for="email">Images du bien</label>
-                <div class="col-md-12 portlets">
-                    <!-- Your awesome content goes here -->
-                    <div class="m-b-30">
-                        <div action="#" class="dropzone" id="dropzone">
-                        <div class="fallback">
-                            <input type="file" multiple="multiple" name="image[]"><br>
-                        </div>
+                <div class"form-group">
+                    <label for="email">Proposez votre prix</label>
+                    <input type="text" name="prix" class="form-control mx-sm-1" required placeholder="Entrer le prix de location"><br>
+                </div>
+
+                <div class"form-group">
+                    <label for="email">Images du bien</label>
+                    <div class="col-md-12 portlets">
+                        <!-- Your awesome content goes here -->
+                        <div class="m-b-30">
+                            <div action="#" class="dropzone" id="dropzone">
+                            <div class="fallback">
+                                <input type="file" multiple="multiple" name="image"><br>
+                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-lg-1"></div>
-        <div class="col-lg-5">
-            <h3 class="text-primary">Information du propriétaire</h3>
-            <div class="space20"></div>
-            <div class"form-group">
-                <label for="email">Votre email</label>
-                <input type="text" name="email" class="form-control mx-sm-1" required placeholder="Entrer email"><br>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+                <h3 class="text-primary">Information du propriétaire</h3>
+                <div class="space20"></div>
+                <div id="connex">
+                    <div class"form-group">
+                        <label for="email">Votre email</label>
+                        <input type="text" name="email" class="form-control mx-sm-1" required placeholder="Entrer email"><br>
+                    </div>
+
+                    <div class"form-group">
+                        <label for="email">Votre mot de passe</label>
+                        <input type="text" name="password" class="form-control mx-sm-1" required placeholder="Entrer votre mot de passe"><br>
+                    </div>
+
+                    <a id="connProp" class="btn btn-danger col-lg-12">Créer un compte</a>
+                </div>
+                <div id="compte">
+                    <div class"form-group">
+                        <label for="email">Votre nom complet</label>
+                        <input type="text" name="nom" class="form-control mx-sm-1" required placeholder="Entrer nom"><br>
+                    </div>
+                    <div class"form-group">
+                        <label for="email">Votre numero de piéce</label>
+                        <input type="text" name="numpiece" class="form-control mx-sm-1" required placeholder="Entrer numéro de piéce"><br>
+                    </div>
+                    <div class"form-group">
+                        <label for="email">Votre adresse</label>
+                        <input type="text" name="adresse" class="form-control mx-sm-1" required placeholder="Entrer adresse"><br>
+                    </div>
+                    <div class"form-group">
+                        <label for="email">Telephone</label>
+                        <input type="text" name="telephone" class="form-control mx-sm-1" required placeholder="Entrer numero de telephone"><br>
+                    </div>
+                    <div class"form-group">
+                        <label for="email">Votre code banque</label>
+                        <input type="text" name="banque" class="form-control mx-sm-1" required placeholder="Entrer votre code banque"><br>
+                    </div>
+                    <div class"form-group">
+                        <label for="email">Votre email</label>
+                        <input type="text" name="emailCompte" class="form-control mx-sm-1" required placeholder="Entrer email"><br>
+                    </div>
+                    <div class"form-group">
+                        <label for="email">Votre mot de passe</label>
+                        <input type="text" name="password" class="form-control mx-sm-1" required placeholder="Entrer votre mot de passe"><br>
+                    </div>
+                    <a id="cmpProp" class="btn btn-danger col-lg-12">Se connecter</a>
+                </div>
             </div>
-
-            <div class"form-group">
-                <label for="email">Votre mot de passe</label>
-                <input type="text" name="password" class="form-control mx-sm-1" required placeholder="Entrer votre mot de passe"><br>
-            </div>
-
-            <a id="btnReserv" class="btn btn-danger col-lg-12">Créer un compte</a>
         </div>
+        <div class="space20"></div> 
+        <button type="submit" class="btn btn-primary col-lg-12">Enregistrer</button>
     </form>
 </div>
 <div class="space80"></div>
@@ -88,4 +131,65 @@
         <!-- Page Specific JS Libraries -->
         <script src="{{ asset('assets/plugins/dropzone/dist/dropzone.js')}}"></script>
 
+        <script>
+            $("#compte").hide();
+            $("#connProp").on("click", function(){
+                $("#connex").hide();
+                $("#compte").show();
+            })
+
+            $("#cmpProp").on("click", function(){
+                $("#compte").hide();
+                $("#connex").show();
+            })
+
+        //Auto complétion Localité
+            $.ajax({
+
+                url: "{{path("ajaxLocalite")}}",
+                type: "POST",
+                dataType: "json",
+
+                success: function(data) {
+                    
+                    var tab = []
+                    $.each(data, function(key, value){
+                        tab.push(value.nom)
+                    })
+
+                    $( "#autoLocalite" ).autocomplete({
+                        source: tab
+                    });
+                },
+
+                error: function(res, stat, error) {
+                    console.log(error);
+                }
+            })
+
+        //Auto complétion type
+            $.ajax({
+
+                url: "{{path("ajaxType")}}",
+                type: "POST",
+                dataType: "json",
+
+                success: function(data) {
+                    
+                    var tab = []
+                    $.each(data, function(key, value){
+                        tab.push(value.nom)
+                    })
+
+                    $( "#autoType" ).autocomplete({
+                        source: tab
+                    });
+                },
+
+                error: function(res, stat, error) {
+                    console.log(error);
+                }
+            })
+        </script>
+        
 {% endblock %}

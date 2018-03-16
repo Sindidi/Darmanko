@@ -5,3 +5,7 @@ snt_darmanko:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+api:
+    resource: "@SNTDarmankoBundle/Controller/apiController.php"
+    type:     annotation

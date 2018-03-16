@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="form">
-                                <form class="cmxform form-horizontal tasi-form" id="commentForm" method="POST" action="" novalidate="novalidate">
+                                <form  enctype="multipart/form-data" class="cmxform form-horizontal tasi-form" id="commentForm" method="POST" action="" novalidate="novalidate">
                                     <div class="form-group">
                                         <label for="cname" class="control-label col-lg-2">Nom du bien</label>
                                         <div class="col-lg-9">
@@ -117,13 +117,30 @@
                                             <div class="col-md-12 portlets">
                                                 <!-- Your awesome content goes here -->
                                                 <div class="m-b-30">
-                                                    <div action="#" class="dropzone" id="dropzone">
+                                                    <div class="dropzone" id="dropzone">
                                                     <div class="fallback">
-                                                        <input type="file" multiple="multiple" name="image">
+                                                        <input id="image-input" type="file" multiple="multiple" name="image">
                                                     </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <!-- Propriétaire -->
+
+                                    <h4>Informations du propriétaire</h4>
+
+                                    <div class="form-group">
+                                        <label for="cname" class="control-label col-lg-2">Adresse email</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" id="cname" name="mailprop" type="text" required="" aria-required="true">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cname" class="control-label col-lg-2">Mot de passe</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" id="cname" name="passwordprop" type="text" required="" aria-required="true">
                                         </div>
                                     </div>
                                     
@@ -223,7 +240,44 @@
         <script src="{{asset('assets/pages/form-validation-init.js')}}"></script> #}
 
         <!-- Page Specific JS Libraries -->
-        <script src="{{ asset('assets/plugins/dropzone/dist/dropzone.js')}}"></script>
+        <script src="{{ asset('assets/plugins/dropzone/dist/dropzone.js')}}"></script> 
+        <script type="text/javascript">
+
+            Dropzone.autoDiscover = false;
+            var dz = new Dropzone('#dropzone', {
+                url: '/',
+                autoProcessQueue: false
+            });
+            var files = [];
+            dz.on('addedfile', function(file) {
+                files.push(file);
+            });
+            var $form = $('#commentForm');
+            $form.on('submit', function(event) {
+                var data = new FormData();
+                files.forEach(function(file) {
+                    data.append('image', file);
+                });
+                event.preventDefault();
+                var serialized = $form.serializeArray();
+                serialized.forEach(function(input) {
+                    data.append(input.name, input.value);
+                });
+                $.ajax({
+                    url: $form.attr('action'),
+                    method: 'POST',
+                    data: data,
+                    contentType: false,
+                    processData: false,
+                    success: function(){
+                        window.location.href = "{{path('bien')}}"
+                    },
+                    error: function(res, stat, error) {
+                        console.log(error);
+                    }
+                });
+            });
+        </script>
 
         <script src="{{ asset('js/test.js') }}"></script>
 
