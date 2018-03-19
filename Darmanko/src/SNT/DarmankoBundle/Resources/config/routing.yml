@@ -24,6 +24,10 @@ login:
     path:     /admin/login
     defaults: { _controller: SNTDarmankoBundle:admin:login }
 
+pdf:
+    path:     /admin/pdf/{id}
+    defaults: { _controller: SNTDarmankoBundle:admin:pdf }
+
 admin:
     path:     /admin
     defaults: { _controller: SNTDarmankoBundle:admin:accueil }

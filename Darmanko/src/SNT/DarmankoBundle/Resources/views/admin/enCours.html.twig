@@ -55,15 +55,17 @@
                         
                             <tbody>
                                 {% for reservation in reservations %}
+                                {% if reservation.bien.etat == 1 %}
                                 <tr>
                                     <td>{{ reservation.client.nomComplet }}</td>
                                     <td>{{ reservation.client.adress }}</td>
                                     <td>{{ reservation.bien.nomBien }}</td>
                                     <td>{{ reservation.bien.prixLocation }}</td>
                                     <td>{{ reservation.bien.localite.libelle }}</td>
-                                    <td><img src="{{ asset('image/')}}{{ reservation.bien.images[0].image }}"></td>
+                                    <td><img src="data:image/png;base64,{{ reservation.bien.images[0].image }}"></td>
                                     <td><a href="{{path('reservation', {'id': reservation.id})}}"><button type="button" class="btn btn-primary waves-effect waves-light m-b-5">Détail</button></a></td>
                                 </tr>
+                                {% endif %}
                                 {% endfor %}
                             </tbody>
                         </table>

@@ -19,7 +19,7 @@ class reservationController extends Controller
 
         if ($request->isMethod('POST')) {
             if ($_POST['localite'] == '' && $_POST['type'] == '' && $_POST['max'] == '') {
-                $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->findAll();
+                $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->findBy(array('etat' => 1));
             } else {
                 $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->search($_POST['localite'], $_POST['type'], $_POST['max']);
                 foreach ($listbien as $key => $value) {
@@ -29,7 +29,7 @@ class reservationController extends Controller
                 }
             }
         } else {
-            $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->findAll();
+            $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->findBy(array('etat' => 1));
         }
 
         // Listes des localités et types de biens pour la recherche
@@ -39,7 +39,7 @@ class reservationController extends Controller
 
         //Les biens qui feront l'objet de slide
 
-        $bienSlide = $em->getRepository('SNTDarmankoBundle:Bien')->findAll();
+        $bienSlide = $em->getRepository('SNTDarmankoBundle:Bien')->findBy(array('etat' => 1));
 
         foreach ($bienSlide as $key => $value) {
             foreach ($value->getImages() as $key1 => $images) {
@@ -63,7 +63,7 @@ class reservationController extends Controller
     public function catalogueAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->findAll();
+        $listbien = $em->getRepository('SNTDarmankoBundle:Bien')->findBy(array('etat' => 1));
         $listType = $em->getRepository('SNTDarmankoBundle:TypeBien')->findAll();
 
         // Pagination des biens
@@ -90,29 +90,11 @@ class reservationController extends Controller
         $em = $this->getDoctrine()->getManager();
         $bien = $em->getRepository('SNTDarmankoBundle:Bien')->find($id);
 
-        foreach ($bien as $key => $value) {
-            foreach ($value->getImages() as $key1 => $images) {
-                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
-            }
-        }
-
-        //Formulaire
-        $client = new Client();
-        $form = $this->createForm(ClientType::class, $client);
-
-        // Biens similaires
-        $similaire = $em->getRepository('SNTDarmankoBundle:Bien')->findBy(array('type' => $bien->getType()));
-        foreach ($similaire as $key => $value) {
-            foreach ($value->getImages() as $key1 => $images) {
-                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
-            }
-        }
-
         //Réservation du bien
         if ($request->isMethod('POST')) {
             $reserv = new Reservation();
             $reserv->setDateReservation(new \DateTime());
-            $reserv->setEtat(0);
+            $reserv->setEtat(1);
             $reserv->setBien($bien);
             if (isset($_POST['submit'])) {
                 $client = $em->getRepository('SNTDarmankoBundle:Client')
@@ -135,6 +117,23 @@ class reservationController extends Controller
                 }
 
                 return $this->render('SNTDarmankoBundle:reservation:confirm.html.twig');
+            }
+        }
+        foreach ($bien as $key => $value) {
+            foreach ($value->getImages() as $key1 => $images) {
+                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
+            }
+        }
+
+        //Formulaire
+        $client = new Client();
+        $form = $this->createForm(ClientType::class, $client);
+
+        // Biens similaires
+        $similaire = $em->getRepository('SNTDarmankoBundle:Bien')->findBy(array('type' => $bien->getType()));
+        foreach ($similaire as $key => $value) {
+            foreach ($value->getImages() as $key1 => $images) {
+                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
             }
         }
 

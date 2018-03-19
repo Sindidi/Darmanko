@@ -10,6 +10,9 @@ use SNT\DarmankoBundle\Entity\Bien;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use SNT\DarmankoBundle\Entity\Image;
+use SNT\DarmankoBundle\Entity\Contrat;
+use SNT\DarmankoBundle\Entity\Paiement;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
 class adminController extends Controller
 {
@@ -54,31 +57,23 @@ class adminController extends Controller
     public function enCoursAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $reservation = $em->getRepository('SNTDarmankoBundle:Reservation')->findBy(array('etat' => 0));
+        $reservations = $em->getRepository('SNTDarmankoBundle:Reservation')->findBy(array('etat' => 0));
 
-        foreach ($reservation as $cle => $reservations) {
-            foreach ($reservations->getBien()->getImages() as $key => $images) {
-                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
-            }
-        }
+        // foreach ($reservations as $cle => $reservation) {
+        //     $bien = $reservation->getBien();
+        //     foreach($bien->getImages() as $key=>$image){
+        //         $image->setImage(base64_encode(stream_get_contents($image->getImage())));
+        //     }
+        // }
 
         return $this->render('SNTDarmankoBundle:admin:enCours.html.twig', array(
-            'reservations' => $reservation,
+            'reservations' => $reservations,
         ));
     }
 
     public function bienAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $bien = $em->getRepository('SNTDarmankoBundle:Bien')->findAll();
-        $localites = $em->getRepository('SNTDarmankoBundle:Localite')->findAll();
-        $types = $em->getRepository('SNTDarmankoBundle:TypeBien')->findAll();
-
-        foreach ($bien as $key => $value) {
-            foreach ($value->getImages() as $key1 => $images) {
-                $images->setImage(base64_encode(stream_get_contents($images->getImage())));
-            }
-        }
 
         if ($request->isMethod('POST')) {
             $localite = $em->getRepository('SNTDarmankoBundle:Localite')->find($request->get('localite'));
@@ -101,10 +96,18 @@ class adminController extends Controller
             }
 
             $em->flush();
+        } else {
+            $bien = $em->getRepository('SNTDarmankoBundle:Bien')->findAll();
+
+            foreach ($bien as $key => $value) {
+                foreach ($value->getImages() as $key1 => $images) {
+                    $images->setImage(base64_encode(stream_get_contents($images->getImage())));
+                }
+            }
         }
 
         return $this->render('SNTDarmankoBundle:admin:bien.html.twig', array(
-            'biens' => $bien, 'localites' => $localites, 'types' => $types,
+            'biens' => $bien,
         ));
     }
 
@@ -129,19 +132,74 @@ class adminController extends Controller
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository('SNTDarmankoBundle:Reservation')->find($id);
 
+        $bien = $reservation->getBien();
+
+        foreach ($bien->getImages() as $key => $images) {
+            $images->setImage(base64_encode(stream_get_contents($images->getImage())));
+        }
+
         return $this->render('SNTDarmankoBundle:admin:reservation.html.twig', array(
-            'reservation' => $reservation,
+            'reservation' => $reservation, 'bien' => $bien,
         ));
     }
 
-    public function contratAction($id)
+    public function contratAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $reservation = $em->getRepository('SNTDarmankoBundle:Reservation')->find($id);
 
+        if ($request->isMethod('POST')) {
+            $clientC = $reservation->getClient();
+            $bienC = $reservation->getBien();
+
+            //Ajout du contrat
+            $contrat = new Contrat();
+            $contrat->setCaution($bienC->getPrixLocation())
+            ->setDateContrat(new \DateTime())
+            ->setDuree('2 mois')
+            ->setClient($clientC)
+            ->setBien($bienC);
+            $em->persist($contrat);
+
+            $paiement = new Paiement();
+            $paiement->setDatePaiement(new \DateTime())
+            ->setMontant($bienC->getPrixLocation() * 2)
+            ->setPeriode('Mars-2018')
+            ->setContrat($contrat);
+            $em->persist($paiement);
+
+            //Changement de l'etat du bien et de la réservation
+            $bienC->setEtat(0);
+            $reservation->setEtat(1);
+
+            $em->flush();
+
+            return $this->redirectToRoute('pdf', array('id' => $id));
+        }
+
         return $this->render('SNTDarmankoBundle:admin:contrat.html.twig', array(
             'reservation' => $reservation,
         ));
+    }
+
+    public function pdfAction($id)
+    {
+        $em = $this
+        ->getDoctrine()
+        ->getManager();
+
+        $reservation = $em->getRepository('SNTDarmankoBundle:Reservation')->find($id);
+
+        $snappy = $this->get('knp_snappy.pdf');
+        $html = $this->renderView('SNTDarmankoBundle:admin:pdf.html.twig',
+                                array('title' => 'contrat', 'reservation' => $reservation));
+
+        $filename = 'custom_pdf_from_twig';
+
+        return new PdfResponse(
+            $snappy->getOutputFromHtml($html),
+            'contrat.pdf'
+            );
     }
 
     public function localiteAction(Request $request)

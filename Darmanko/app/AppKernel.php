@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new SNT\DarmankoBundle\SNTDarmankoBundle(),
 
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),

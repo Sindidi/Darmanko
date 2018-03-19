@@ -19,6 +19,7 @@
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="SNTDarmankoBundle">SNT\DarmankoBundle\SNTDarmankoBundle</parameter>
       <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
+      <parameter key="KnpSnappyBundle">Knp\Bundle\SnappyBundle\KnpSnappyBundle</parameter>
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="JMSSerializerBundle">JMS\SerializerBundle\JMSSerializerBundle</parameter>
       <parameter key="FOSRestBundle">FOS\RestBundle\FOSRestBundle</parameter>
@@ -78,6 +79,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">/var/www/html/perso/Darmanko/vendor/knplabs/knp-paginator-bundle</parameter>
         <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
+      </parameter>
+      <parameter key="KnpSnappyBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">/var/www/html/perso/Darmanko/vendor/knplabs/knp-snappy-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\SnappyBundle</parameter>
       </parameter>
       <parameter key="AsseticBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -360,6 +366,12 @@
     <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
     <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
     <parameter key="knp_paginator.page_range">5</parameter>
+    <parameter key="knp_snappy.pdf.binary">/usr/local/bin/wkhtmltopdf</parameter>
+    <parameter key="knp_snappy.pdf.options" type="collection"/>
+    <parameter key="knp_snappy.pdf.env" type="collection"/>
+    <parameter key="knp_snappy.image.binary">/usr/local/bin/wkhtmltoimage</parameter>
+    <parameter key="knp_snappy.image.options" type="collection"/>
+    <parameter key="knp_snappy.image.env" type="collection"/>
     <parameter key="assetic.asset_factory.class">Symfony\Bundle\AsseticBundle\Factory\AssetFactory</parameter>
     <parameter key="assetic.asset_manager.class">Assetic\Factory\LazyAssetManager</parameter>
     <parameter key="assetic.asset_manager_cache_warmer.class">Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer</parameter>
@@ -735,7 +747,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>HRC2LOdNKe+ZDA6YS++qUZ</argument>
+      <argument>dK4vb13CBq9CtVFL5qVXrH</argument>
       <argument>/var/www/html/perso/Darmanko/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -745,7 +757,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>HRC2LOdNKe+ZDA6YS++qUZ</argument>
+      <argument>dK4vb13CBq9CtVFL5qVXrH</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -2363,12 +2375,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.main" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>5aab6bdb8ebeb6.44434287</argument>
+      <argument>5aaed30ea49025.23412348</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.main" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>5aab6bdb8ebeb6.44434287</argument>
+      <argument>5aaed30ea49025.23412348</argument>
     </service>
     <service id="security.exception_listener.main" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -3247,6 +3259,24 @@
     <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
       <tag name="twig.extension"/>
       <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
+    <service id="knp_snappy.pdf" class="Knp\Snappy\Pdf">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>/usr/local/bin/wkhtmltopdf</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.snappy" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="knp_snappy.image" class="Knp\Snappy\Image">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>/usr/local/bin/wkhtmltoimage</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.snappy" on-invalid="ignore"/>
+      </call>
     </service>
     <service id="assetic.filter_manager" class="Symfony\Bundle\AsseticBundle\FilterManager">
       <argument type="service" id="service_container"/>
@@ -4519,6 +4549,21 @@
         <argument type="service" id="monolog.handler.main"/>
       </call>
     </service>
+    <service id="monolog.logger.snappy" class="Symfony\Bridge\Monolog\Logger">
+      <argument>snappy</argument>
+      <call method="pushProcessor">
+        <argument type="service" id="debug.log_processor"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.server_log"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+    </service>
     <service id="monolog.logger.assetic" class="Symfony\Bridge\Monolog\Logger">
       <argument>assetic</argument>
       <call method="pushProcessor">
@@ -4608,7 +4653,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>zwTuIy12Ai</argument>
       <argument>0</argument>
-      <argument>HRC2LOdNKe+ZDA6YS++qUZ</argument>
+      <argument>dK4vb13CBq9CtVFL5qVXrH</argument>
       <argument>/var/www/html/perso/Darmanko/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4616,7 +4661,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>n4gCUWmLlC</argument>
       <argument>0</argument>
-      <argument>HRC2LOdNKe+ZDA6YS++qUZ</argument>
+      <argument>dK4vb13CBq9CtVFL5qVXrH</argument>
       <argument>/var/www/html/perso/Darmanko/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4624,7 +4669,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>Oqqanrd8mU</argument>
       <argument>0</argument>
-      <argument>HRC2LOdNKe+ZDA6YS++qUZ</argument>
+      <argument>dK4vb13CBq9CtVFL5qVXrH</argument>
       <argument>/var/www/html/perso/Darmanko/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4632,7 +4677,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>QPyGasHqki</argument>
       <argument>0</argument>
-      <argument>HRC2LOdNKe+ZDA6YS++qUZ</argument>
+      <argument>dK4vb13CBq9CtVFL5qVXrH</argument>
       <argument>/var/www/html/perso/Darmanko/var/cache/dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -4746,6 +4791,8 @@
     <service id="sensio_framework_extra.converter.doctrine.orm.expression_language" alias="sensio_framework_extra.converter.doctrine.orm.expression_language.default" public="false"/>
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default" public="false"/>
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
+    <service id="Knp\Snappy\Pdf" alias="knp_snappy.pdf"/>
+    <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
     <service id="assetic.value_supplier" alias="assetic.value_supplier.default" public="false"/>
     <service id="jms_serializer.metadata_driver" alias="jms_serializer.metadata.doctrine_type_driver"/>
     <service id="jms_serializer.metadata.cache" alias="jms_serializer.metadata.cache.file_cache" public="false"/>
