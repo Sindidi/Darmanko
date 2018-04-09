@@ -202,6 +202,28 @@ class adminController extends Controller
             );
     }
 
+    //Pdf du contrat de bien
+
+    public function pdfBienAction($id, $etat)
+    {
+        if ($etat != -1) {
+            $em = $this->getDoctrine()->getManager();
+
+            $bien = $em->getRepository('SNTDarmankoBundle:Bien')->find($id);
+
+            $snappy = $this->get('knp_snappy.pdf');
+            $html = $this->renderView('SNTDarmankoBundle:admin:pdfBien.html.twig', array(
+                'title' => 'contrat', 'biens' => $bien,
+            ));
+
+            return new PdfResponse(
+                $snappy->getOutputFromHtml($html),
+                'contrat.pdf'
+            );
+        } else {
+        }
+    }
+
     public function localiteAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();

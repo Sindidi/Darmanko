@@ -134,9 +134,17 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     return array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::loginAction',  '_route' => 'login',);
                 }
 
-                // pdf
-                if (0 === strpos($pathinfo, '/admin/pdf') && preg_match('#^/admin/pdf/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pdf')), array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::pdfAction',));
+                if (0 === strpos($pathinfo, '/admin/pdf')) {
+                    // pdf
+                    if (preg_match('#^/admin/pdf/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pdf')), array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::pdfAction',));
+                    }
+
+                    // pdfBien
+                    if (0 === strpos($pathinfo, '/admin/pdfBien') && preg_match('#^/admin/pdfBien/(?P<id>[^/]++)/(?P<etat>[^/]++)$#s', $pathinfo, $matches)) {
+                        return $this->mergeDefaults(array_replace($matches, array('_route' => 'pdfBien')), array (  '_controller' => 'SNT\\DarmankoBundle\\Controller\\adminController::pdfBienAction',));
+                    }
+
                 }
 
                 // admin

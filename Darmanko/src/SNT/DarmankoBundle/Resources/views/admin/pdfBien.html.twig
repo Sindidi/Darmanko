@@ -1,0 +1,52 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<div class="container" style="font-family:Goudy Old style; color:grey; ">
+    <center>
+        <h2 class="text-info"><i>Darmanko Immobilier contrat de mise en location</i></h2>
+        <hr style="border:solid 2px;">
+        
+    </center>
+    <br>
+     <center><i><h4 class=" bg-info text-dark" >Information sur le proprietaire</h4></i></center>
+    <i><div class="card">
+        <div class="card-body">
+            <p><B>Nom complet </B>: {{biens.proprietaire.nomComplet}} </p>
+            <p><B>Numéro de de pièce</B>: {{biens.proprietaire.numpiece}} </p>
+            <p><B>Adresse</B>:  {{biens.proprietaire.adresse}}</p>
+            <p><B> Tel</B>:  {{biens.proprietaire.tel}} </p>
+            <p><B> Email</B>:  {{biens.proprietaire.email}} </p>
+            <p><B> Code Banque</B>:  {{biens.proprietaire.codebanque}} </p>
+        </div>
+    </div></i>
+    
+    <br>
+     <center><i><h4 class=" bg-info text-dark" >Information sur le bien</h4></i></center>
+ 
+     <i><div class="card">
+        <div class="card-body">
+        
+            <p><B>Nom du bien</B>   :{{biens.nomBien}}</p>
+            <p><B>Type du bien</B>  : {{biens.type.libelle}}</p>
+            <p><B>Localité du bien</B>  : {{biens.localite.libelle}}</p>
+            <p><B>Prix location</B>  : {{biens.prixLocation}}</p>
+            <p><B>Description du bien</B>  :{{biens.description}} </p>
+            
+        </div>
+    </div> </i>
+    <br>
+      <center><i><h4 class=" bg-info text-dark" >Voici les termes du contrat</h4></i></center>
+      <i><div class="card">
+        <div class="card-body">
+            
+            <p><B>Texte du contrat</B>: Le propriétaire qui loue un logement non conforme aux normes de sécurité, de salubrité et d'habitabilité risque de se voir contraindre d’effectuer des travaux, voire de payer des dommages et intérêts au locataire.
+            La loi définit, tant au niveau fédéral que régional, des normes minimales de sécurité, de salubrité et d'habitabilité que tout logement en location doit respecter lorsqu'il doit servir de résidence principale au locataire.
+            En cas de logement non conforme, le locataire peut poursuivre le propriétaire.
+Si le locataire qui s’installe dans un logement constate un manquement aux exigences minimales de décence définies par la loi, il doit effectuer une demande écrite de mise en conformité du logement loué.     </div></div> </i>
+<br>
+
+<br><br>
+</div>
+{% endblock %}

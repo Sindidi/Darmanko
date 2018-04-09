@@ -28,6 +28,10 @@ pdf:
     path:     /admin/pdf/{id}
     defaults: { _controller: SNTDarmankoBundle:admin:pdf }
 
+pdfBien:
+    path:     /admin/pdfBien/{id}/{etat}
+    defaults: { _controller: SNTDarmankoBundle:admin:pdfBien }
+
 admin:
     path:     /admin
     defaults: { _controller: SNTDarmankoBundle:admin:accueil }
